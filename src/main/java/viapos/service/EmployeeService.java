@@ -1,0 +1,47 @@
+package viapos.service;
+
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import viapos.dao.EmployeeDao;
+import viapos.dao.LocationsDao;
+import viapos.model.Employee;
+import viapos.model.Location;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class EmployeeService {
+
+    @Autowired
+    EmployeeDao employeeDao;
+
+    public boolean updateEmployees(List<Employee> employees) {
+        for (Employee employee : employees) {
+            employeeDao.updateEmployee(employee);
+        }
+        return true;
+    }
+
+    public ArrayList<Employee> getEmployees() {
+        return employeeDao.getEmployees();
+    }
+
+    public boolean createEmployees(List<Employee> employees) {
+        for (Employee employee : employees) {
+            employeeDao.createEmployee(employee);
+        }
+        return true;
+    }
+
+    public boolean deleteEmployees(List<Employee> employees) {
+        for (Employee employee : employees) {
+            employeeDao.deleteEmployee(employee);
+        }
+        return true;
+    }
+}

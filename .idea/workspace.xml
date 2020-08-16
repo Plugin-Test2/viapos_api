@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1a8RszExzJM4ud6joIv9Mc3ygxo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="" />
+      <created>1586115444971</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586115444971</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2132" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597499253474">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2132" y="350" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597499253474" />
+    <state x="2238" y="257" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1597500197953">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2238" y="257" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500197953" />
+    <state x="1875" y="90" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597499582211">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1875" y="90" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597499582211" />
+    <state x="2138" y="312" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1597500079393">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2138" y="312" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500079393" />
+    <state x="1888" y="121" key="SettingsEditor" timestamp="1597500223718">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1888" y="121" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500223718" />
+    <state x="2183" y="325" key="chooseDestDirectoryDialog" timestamp="1597521651917">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2183" y="325" key="chooseDestDirectoryDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597521651917" />
+    <state x="396" y="268" key="com.intellij.ide.util.TipDialog" timestamp="1597434965486">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state x="396" y="268" key="com.intellij.ide.util.TipDialog/0.23.1440.827/1440.23.1920.1057@0.23.1440.827" timestamp="1597434965486" />
+  </component>
+</project>
