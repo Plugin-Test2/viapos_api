@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'JAVA_HOME=/usr/java/jdk1.8.0_141/'
-                sh './gradlew assemble'
+                sh './gradle assemble'
             }
         }
         stage('Test') {
