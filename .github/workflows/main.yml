@@ -37,8 +37,8 @@ jobs:
         run: docker build --build-arg JAR_FILE=build/libs/*.jar -t viapos-api .
       - name: Tags
         run: |
-          docker viapos-api back ${{ secrets.DOCKER_USER }}/viapos-api:${{ github.sha }}
-          docker viapos-api back ${{ secrets.DOCKER_USER }}/viapos-api:latest
+          docker tag viapos-api ${{ secrets.DOCKER_USER }}/viapos-api:${{ github.sha }}
+          docker tag viapos-api ${{ secrets.DOCKER_USER }}/viapos-api:latest
       - name: Push
         run: |
           docker push ${{ secrets.DOCKER_USER }}/viapos-api:${{ github.sha }}
