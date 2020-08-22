@@ -5,7 +5,6 @@
   "containerDefinitions": [
     {
       "dnsSearchDomains": null,
-      "name": "viapos-api",
       "environmentFiles": null,
       "logConfiguration": {
         "logDriver": "awslogs",
