@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ecs-task-definition.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +140,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598050276189</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="updating Docker build">
+      <created>1598050701148</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1598050701148</updated>
+    </task>
+    <task id="LOCAL-00013" summary="updating Docker build">
+      <created>1598050880357</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1598050880357</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -166,19 +181,19 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2138" y="312" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500079393" />
-    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1598050701035">
+    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1598050880264">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598050701035" />
+    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598050880264" />
     <state x="454" y="105" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1597963159020" />
     <state x="1888" y="121" key="SettingsEditor" timestamp="1597500223718">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="1888" y="121" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500223718" />
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1598050702319">
+    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1598050881364">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598050702319" />
+    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598050881364" />
     <state x="420" y="233" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597963160690" />
     <state x="2183" y="325" key="chooseDestDirectoryDialog" timestamp="1597521651917">
       <screen x="1440" y="0" width="1920" height="1080" />
