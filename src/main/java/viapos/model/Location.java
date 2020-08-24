@@ -7,7 +7,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
-import org.bson.types.ObjectId;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -25,7 +24,7 @@ public class Location   {
   @JsonProperty("id")
   @BsonProperty("_id")
   @BsonId
-  private ObjectId id = null;
+  private String id = null;
 
   @JsonProperty("name")
   private String name = null;
@@ -36,7 +35,7 @@ public class Location   {
   @JsonProperty("type")
   private String type = null;
 
-  public Location id(ObjectId id) {
+  public Location id(String id) {
     this.id = id;
     return this;
   }
@@ -48,11 +47,11 @@ public class Location   {
   @ApiModelProperty(value = "")
 
 
-  public ObjectId getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(ObjectId id) {
+  public void setId(String id) {
     this.id = id;
   }
 
