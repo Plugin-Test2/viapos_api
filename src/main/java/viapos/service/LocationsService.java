@@ -11,6 +11,7 @@ import viapos.model.Location;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class LocationsService {
@@ -31,6 +32,9 @@ public class LocationsService {
 
     public boolean createLocations(List<Location> locations) {
         for (Location location : locations) {
+            if (location.getId() == null || location.getId().isEmpty()) {
+                location.setId(UUID.randomUUID().toString());
+            }
             locationsDao.createLocations(location);
         }
         return true;
