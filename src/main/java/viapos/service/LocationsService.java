@@ -35,6 +35,8 @@ public class LocationsService {
             if (location.getId() == null || location.getId().isEmpty()) {
                 location.setId(UUID.randomUUID().toString());
                 System.out.println("Setting id to: " + location.getId());
+            } else {
+                System.out.println("Do something crazy");
             }
             locationsDao.createLocations(location);
         }
