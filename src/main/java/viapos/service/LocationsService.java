@@ -33,13 +33,7 @@ public class LocationsService {
 
     public boolean createLocations(List<Location> locations) {
         for (Location location : locations) {
-            if (location.getId() == null || location.getId().toString().isEmpty()) {
-                location.setId(new ObjectId(UUID.randomUUID().toString()));
-                System.out.println("Setting id to: " + location.getId());
-            } else {
-                System.out.println("Do something crazy");
-                location.setId(new ObjectId(UUID.randomUUID().toString()));
-            }
+            location.setId(UUID.randomUUID().toString());
             locationsDao.createLocations(location);
         }
         return true;
