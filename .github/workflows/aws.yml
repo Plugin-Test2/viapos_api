@@ -47,6 +47,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: jarfiles
+          path: build/libs
 
   deploy:
     name: Deploy
@@ -83,7 +84,7 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker build --build-arg JAR_FILE=$GITHUB_WORKSPACE/build/libs/jarfiles/*.jar -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker build --build-arg JAR_FILE=jarfiles/*.jar -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
