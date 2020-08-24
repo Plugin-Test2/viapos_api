@@ -46,6 +46,7 @@ jobs:
       - name: Install & Tests
         run: |
           ./gradlew build
+
   deploy:
     name: Deploy
     runs-on: ubuntu-latest

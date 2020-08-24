@@ -36,6 +36,9 @@ public class Location   {
   @JsonProperty("type")
   private String type = null;
 
+  @JsonProperty("nickName")
+  private String nickName = null;
+
   public Location id(String id) {
     this.id = id;
     return this;
