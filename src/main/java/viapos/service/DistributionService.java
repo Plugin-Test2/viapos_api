@@ -13,6 +13,7 @@ import viapos.model.Location;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class DistributionService {
@@ -33,6 +34,7 @@ public class DistributionService {
 
     public boolean createDistributions(List<Distribution> distributions) {
         for (Distribution distribution : distributions) {
+            distribution.setId(UUID.randomUUID().toString());
             distributionDao.createDistributions(distribution);
         }
         return true;

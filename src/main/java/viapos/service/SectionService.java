@@ -13,6 +13,7 @@ import viapos.model.Section;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class SectionService {
@@ -33,6 +34,7 @@ public class SectionService {
 
     public boolean createSections(List<Section> sections) {
         for (Section section : sections) {
+            section.setId(UUID.randomUUID().toString());
             sectionDao.createSection(section);
         }
         return true;

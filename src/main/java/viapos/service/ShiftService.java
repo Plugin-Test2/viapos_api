@@ -13,6 +13,7 @@ import viapos.model.Shift;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class ShiftService {
@@ -33,6 +34,7 @@ public class ShiftService {
 
     public boolean createShifts(List<Shift> shifts) {
         for (Shift shift : shifts) {
+            shift.setId(UUID.randomUUID().toString());
             shiftDao.createShifts(shift);
         }
         return true;

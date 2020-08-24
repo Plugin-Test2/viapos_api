@@ -13,6 +13,7 @@ import viapos.model.Location;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class EmployeeService {
@@ -33,6 +34,7 @@ public class EmployeeService {
 
     public boolean createEmployees(List<Employee> employees) {
         for (Employee employee : employees) {
+            employee.setId(UUID.randomUUID().toString());
             employeeDao.createEmployee(employee);
         }
         return true;

@@ -13,6 +13,7 @@ import viapos.model.Route;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class RouteService {
@@ -33,6 +34,7 @@ public class RouteService {
 
     public boolean createRoutes(List<Route> routes) {
         for (Route route : routes) {
+            route.setId(UUID.randomUUID().toString());
             routeDao.createRoutes(route);
         }
         return true;
