@@ -27,13 +27,16 @@ public class Section   {
   private String name = null;
 
   @JsonProperty("nbrRoutes")
-  private BigDecimal nbrRoutes = null;
+  private String nbrRoutes = null;
 
   @JsonProperty("nbrBolts")
-  private BigDecimal nbrBolts = null;
+  private String nbrBolts = null;
 
   @JsonProperty("occruence")
   private String occruence = null;
+
+  @JsonProperty("difficulty")
+  private String difficulty = null;
 
   public Section id(String id) {
     this.id = id;
@@ -75,7 +78,7 @@ public class Section   {
     this.name = name;
   }
 
-  public Section nbrRoutes(BigDecimal nbrRoutes) {
+  public Section nbrRoutes(String nbrRoutes) {
     this.nbrRoutes = nbrRoutes;
     return this;
   }
@@ -88,15 +91,15 @@ public class Section   {
 
   @Valid
 
-  public BigDecimal getNbrRoutes() {
+  public String getNbrRoutes() {
     return nbrRoutes;
   }
 
-  public void setNbrRoutes(BigDecimal nbrRoutes) {
+  public void setNbrRoutes(String nbrRoutes) {
     this.nbrRoutes = nbrRoutes;
   }
 
-  public Section nbrBolts(BigDecimal nbrBolts) {
+  public Section nbrBolts(String nbrBolts) {
     this.nbrBolts = nbrBolts;
     return this;
   }
@@ -109,11 +112,11 @@ public class Section   {
 
   @Valid
 
-  public BigDecimal getNbrBolts() {
+  public String getNbrBolts() {
     return nbrBolts;
   }
 
-  public void setNbrBolts(BigDecimal nbrBolts) {
+  public void setNbrBolts(String nbrBolts) {
     this.nbrBolts = nbrBolts;
   }
 
@@ -135,6 +138,14 @@ public class Section   {
 
   public void setOccruence(String occruence) {
     this.occruence = occruence;
+  }
+
+  public String getDifficulty() {
+    return difficulty;
+  }
+
+  public void setDifficulty(String difficulty) {
+    this.difficulty = difficulty;
   }
 
 
