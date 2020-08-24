@@ -47,7 +47,6 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: jarfiles
-          path: build/libs
 
   deploy:
     name: Deploy
