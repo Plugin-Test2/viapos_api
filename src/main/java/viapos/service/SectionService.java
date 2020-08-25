@@ -46,4 +46,11 @@ public class SectionService {
         }
         return true;
     }
+
+    public boolean deleteSection(String id) {
+        Section section = new Section();
+        section.setId(id);
+        sectionDao.deleteSection(section);
+        return true;
+    }
 }

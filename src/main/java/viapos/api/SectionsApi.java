@@ -36,6 +36,17 @@ public interface SectionsApi {
         method = RequestMethod.POST)
     ResponseEntity<Void> createSections(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Sections objects to be created" ,required=true )  @Valid @RequestBody List<Section> sections);
 
+    @ApiOperation(value = "Delete a single section", nickname = "deleteSection", notes = "", tags={ "Section", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "Location not found"),
+            @ApiResponse(code = 405, message = "Validation exception") })
+    @RequestMapping(value = "/sections/{sectionId}",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.DELETE)
+    ResponseEntity<Void> deleteSection(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ID of Section to return",required=true) @PathVariable("sectionId") String sectionId);
 
     @ApiOperation(value = "Update an existing Sections", nickname = "deleteSections", notes = "", tags={ "Section", })
     @ApiResponses(value = { 

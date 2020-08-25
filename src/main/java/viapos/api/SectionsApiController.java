@@ -59,6 +59,15 @@ public class SectionsApiController implements SectionsApi {
         }
     }
 
+    public ResponseEntity<Void> deleteSection(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ID of Section to return",required=true) @PathVariable("sectionId") String sectionId) {
+        boolean creation = sectionService.deleteSection(sectionId);
+        if (creation) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     public ResponseEntity<Section> getSection(@ApiParam(value = "ID of Section to return",required=true) @PathVariable("sectionId") String sectionId,@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept) {
         if (accept != null && accept.contains("application/json")) {
             try {
