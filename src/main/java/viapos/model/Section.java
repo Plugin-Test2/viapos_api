@@ -38,6 +38,12 @@ public class Section   {
   @JsonProperty("difficulty")
   private String difficulty = null;
 
+  @JsonProperty("locationName")
+  private String locationName = null;
+
+  @JsonProperty("locationId")
+  private String locationId = null;
+
   public Section id(String id) {
     this.id = id;
     return this;
@@ -146,6 +152,22 @@ public class Section   {
 
   public void setDifficulty(String difficulty) {
     this.difficulty = difficulty;
+  }
+
+  public String getLocationName() {
+    return locationName;
+  }
+
+  public void setLocationName(String locationName) {
+    this.locationName = locationName;
+  }
+
+  public String getLocationId() {
+    return locationId;
+  }
+
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
   }
 
 
