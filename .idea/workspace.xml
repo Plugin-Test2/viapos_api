@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="">
+    <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="adding Event CRUD functionality">
+      <change afterPath="$PROJECT_DIR$/src/main/java/viapos/api/EventsApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viapos/api/EventsApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viapos/dao/EventDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viapos/model/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viapos/model/Exclusion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viapos/service/EventService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viapos/api/SectionsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viapos/api/SectionsApiController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,13 +68,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586115444971</updated>
-    </task>
-    <task id="LOCAL-00001" summary="adding jenkins file">
-      <created>1597869701132</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1597869701132</updated>
     </task>
     <task id="LOCAL-00002" summary="setting java home">
       <created>1597961997314</created>
@@ -407,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598540959189</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="fixing update sections">
+      <created>1598550476923</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1598550476928</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -422,13 +427,19 @@
     <MESSAGE value="fixing Section object" />
     <MESSAGE value="adding to Section object" />
     <MESSAGE value="adding delete distribution by ID" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding delete distribution by ID" />
+    <MESSAGE value="fixing update sections" />
+    <MESSAGE value="adding Event CRUD functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding Event CRUD functionality" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2132" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597499253474">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2132" y="350" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597499253474" />
+    <state x="2213" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1598565945698">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2213" y="231" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598565945698" />
     <state x="2238" y="257" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1597500197953">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
@@ -441,19 +452,19 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2138" y="312" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500079393" />
-    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1598540959001">
+    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1598568640064">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598540959001" />
+    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598568640064" />
     <state x="454" y="105" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1598302433789" />
     <state x="1888" y="121" key="SettingsEditor" timestamp="1598293147878">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="1888" y="121" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598293147878" />
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1598540960562">
+    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1598550479840">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598540960562" />
+    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598550479840" />
     <state x="420" y="233" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1598302435880" />
     <state x="2183" y="325" key="chooseDestDirectoryDialog" timestamp="1597521651917">
       <screen x="1440" y="0" width="1920" height="1080" />
