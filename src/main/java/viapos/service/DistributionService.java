@@ -10,6 +10,7 @@ import viapos.dao.DistributionDao;
 import viapos.dao.LocationsDao;
 import viapos.model.Distribution;
 import viapos.model.Location;
+import viapos.model.Section;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,13 @@ public class DistributionService {
         for (Distribution distribution : distributions) {
             distributionDao.deleteDistribution(distribution);
         }
+        return true;
+    }
+
+    public boolean deleteDistribution(String id) {
+        Distribution distribution = new Distribution();
+        distribution.setId(id);
+        distributionDao.deleteDistribution(distribution);
         return true;
     }
 }

@@ -61,6 +61,15 @@ public class DistributionsApiController implements DistributionsApi {
         }
     }
 
+    public ResponseEntity<Void> deleteDistribution(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ID of Section to return",required=true) @PathVariable("distributionId") String distributionId) {
+        boolean creation = distributionService.deleteDistribution(distributionId);
+        if (creation) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     public ResponseEntity<Distribution> getDistribution(@ApiParam(value = "ID of Distribution to return",required=true) @PathVariable("distributionId") String distributionId,@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept) {
         return new ResponseEntity<Distribution>(HttpStatus.NOT_IMPLEMENTED);
     }

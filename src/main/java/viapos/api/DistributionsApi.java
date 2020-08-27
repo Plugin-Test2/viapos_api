@@ -49,6 +49,17 @@ public interface DistributionsApi {
         method = RequestMethod.DELETE)
     ResponseEntity<Void> deleteDistributions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Distributions objects to be deleted" ,required=true )  @Valid @RequestBody List<Distribution> distributions);
 
+    @ApiOperation(value = "Delete a single distribution", nickname = "deleteDistribution", notes = "", tags={ "Distribution", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "Location not found"),
+            @ApiResponse(code = 405, message = "Validation exception") })
+    @RequestMapping(value = "/distributions/{distributionId}",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.DELETE)
+    ResponseEntity<Void> deleteDistribution(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ID of Section to return",required=true) @PathVariable("distributionId") String distributionId);
 
     @ApiOperation(value = "Retrieve a single Distribution.", nickname = "getDistribution", notes = "", response = Distribution.class, tags={ "Distribution", })
     @ApiResponses(value = { 
