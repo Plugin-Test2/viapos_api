@@ -91,7 +91,7 @@ public class SectionsApiController implements SectionsApi {
     }
 
     public ResponseEntity<Void> updateSections(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Section objects to be updated" ,required=true )  @Valid @RequestBody List<Section> sections) {
-        boolean creation = sectionService.createSections(sections);
+        boolean creation = sectionService.updateSections(sections);
         if (creation) {
             return new ResponseEntity<Void>(HttpStatus.OK);
         } else {

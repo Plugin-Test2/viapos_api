@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viapos/api/DistributionsApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viapos/api/DistributionsApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viapos/api/DistributionsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viapos/api/DistributionsApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viapos/service/DistributionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viapos/service/DistributionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viapos/api/SectionsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viapos/api/SectionsApiController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -402,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598367973218</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="adding delete distribution by ID">
+      <created>1598540959188</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1598540959189</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -416,7 +421,8 @@
     <MESSAGE value="fixing all services to generate UUID" />
     <MESSAGE value="fixing Section object" />
     <MESSAGE value="adding to Section object" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding to Section object" />
+    <MESSAGE value="adding delete distribution by ID" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding delete distribution by ID" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2132" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597499253474">
@@ -435,19 +441,19 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2138" y="312" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500079393" />
-    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1598367973086">
+    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1598540959001">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598367973086" />
+    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598540959001" />
     <state x="454" y="105" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1598302433789" />
     <state x="1888" y="121" key="SettingsEditor" timestamp="1598293147878">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="1888" y="121" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598293147878" />
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1598367974274">
+    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1598540960562">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598367974274" />
+    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598540960562" />
     <state x="420" y="233" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1598302435880" />
     <state x="2183" y="325" key="chooseDestDirectoryDialog" timestamp="1597521651917">
       <screen x="1440" y="0" width="1920" height="1080" />
