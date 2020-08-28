@@ -30,7 +30,7 @@ import java.util.List;
 @Controller
 public class EventsApiController implements EventsApi {
 
-    private static final Logger log = LoggerFactory.getLogger(DistributionsApiController.class);
+    private static final Logger log = LoggerFactory.getLogger(EventsApiController.class);
 
     private final ObjectMapper objectMapper;
 

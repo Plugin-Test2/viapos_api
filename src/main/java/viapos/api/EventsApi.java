@@ -78,7 +78,7 @@ public interface EventsApi {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = Event.class, responseContainer = "List"),
             @ApiResponse(code = 405, message = "Invalid input") })
-    @RequestMapping(value = "/distributions",
+    @RequestMapping(value = "/events",
             produces = { "application/json" },
             consumes = { "application/json" },
             method = RequestMethod.GET)
@@ -89,7 +89,7 @@ public interface EventsApi {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 400, message = "Invalid ID supplied"),
-            @ApiResponse(code = 404, message = "Distributions not found"),
+            @ApiResponse(code = 404, message = "Events not found"),
             @ApiResponse(code = 405, message = "Validation exception") })
     @RequestMapping(value = "/events",
             produces = { "application/json" },
