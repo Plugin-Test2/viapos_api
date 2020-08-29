@@ -23,7 +23,7 @@ public class Event {
     @JsonProperty("exclusions")
     private Exclusion[] exclusions;
 
-    public String getStartTime() {
+    public String getStart() {
         return start;
     }
 
