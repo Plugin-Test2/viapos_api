@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Event {
 
-    @JsonProperty("startTime")
-    private String startTime;
-    @JsonProperty("endTime")
-    private String endTime;
+    @JsonProperty("start")
+    private String start;
+    @JsonProperty("end")
+    private String end;
     @JsonProperty("id")
     private String id;
     @JsonProperty("name")
@@ -24,19 +24,19 @@ public class Event {
     private Exclusion[] exclusions;
 
     public String getStartTime() {
-        return startTime;
+        return start;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public void setStart(String start) {
+        this.start = start;
     }
 
-    public String getEndTime() {
-        return endTime;
+    public String getEnd() {
+        return end;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setEnd(String end) {
+        this.end = end;
     }
 
     public String getId() {
