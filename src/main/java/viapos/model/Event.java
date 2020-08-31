@@ -2,6 +2,8 @@ package viapos.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 public class Event {
 
     @JsonProperty("start")
@@ -13,15 +15,15 @@ public class Event {
     @JsonProperty("name")
     private String name;
     @JsonProperty("allowedEmployeeTypes")
-    private String[] allowedEmployeeTypes;
+    private List<String> allowedEmployeeTypes;
     @JsonProperty("locationId")
     private String locationId;
     @JsonProperty("reoccurence")
     private String reoccurence;
     @JsonProperty("daysOfWeek")
-    private String[] daysOfWeek;
+    private List<String> daysOfWeek;
     @JsonProperty("exclusions")
-    private Exclusion[] exclusions;
+    private List<Exclusion> exclusions;
 
     public String getStart() {
         return start;
@@ -55,11 +57,11 @@ public class Event {
         this.name = name;
     }
 
-    public String[] getAllowedEmployeeTypes() {
+    public List<String> getAllowedEmployeeTypes() {
         return allowedEmployeeTypes;
     }
 
-    public void setAllowedEmployeeTypes(String[] allowedEmployeeTypes) {
+    public void setAllowedEmployeeTypes(List<String> allowedEmployeeTypes) {
         this.allowedEmployeeTypes = allowedEmployeeTypes;
     }
 
@@ -79,19 +81,19 @@ public class Event {
         this.reoccurence = reoccurence;
     }
 
-    public String[] getDaysOfWeek() {
+    public List<String> getDaysOfWeek() {
         return daysOfWeek;
     }
 
-    public void setDaysOfWeek(String[] daysOfWeek) {
+    public void setDaysOfWeek(List<String> daysOfWeek) {
         this.daysOfWeek = daysOfWeek;
     }
 
-    public Exclusion[] getExclusions() {
+    public List<Exclusion> getExclusions() {
         return exclusions;
     }
 
-    public void setExclusions(Exclusion[] exclusions) {
+    public void setExclusions(List<Exclusion> exclusions) {
         this.exclusions = exclusions;
     }
 }
