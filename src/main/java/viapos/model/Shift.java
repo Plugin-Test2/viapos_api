@@ -49,8 +49,16 @@ public class Shift   {
   }
 
   public Shift(Event event, String date){
-    this.start = date + "T" + event.getStart();
-    this.end = date + "T" + event.getEnd();
+    if (event.getStart().contains("T")) {
+      this.start = date + "T" + event.getStart().split("T")[1];
+    } else {
+      this.start = date + "T" + event.getStart();
+    }
+    if (event.getEnd().contains("T")) {
+      this.end = date + "T" + event.getEnd().split("T")[1];
+    } else {
+      this.end = date + "T" + event.getEnd();
+    }
     this.locationId = event.getLocationId();
     this.eventId = event.getId();
   }
