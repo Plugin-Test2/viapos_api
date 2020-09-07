@@ -1,10 +1,12 @@
 package viapos.dao;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.*;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import viapos.model.Distribution;
+import viapos.model.Event;
 import viapos.model.Location;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
@@ -17,6 +19,7 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 import viapos.model.Shift;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
 import static java.util.Collections.singletonList;
@@ -82,5 +85,28 @@ public class ShiftDao extends BaseDao {
             shiftCollection.deleteOne(shiftId);
         }
         return true;
+    }
+
+    public ArrayList<Shift> getUnassignedShifts(List<Event> events, String date) {
+        ArrayList<Shift> unassignedShifts = new ArrayList<>();
+        try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+            MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
+
+            for (Event event:events) {
+                if (event.getMinEmployeeNbr() != null && Integer.parseInt(event.getMinEmployeeNbr()) > 0) {
+                    BasicDBObject eventQuery = new BasicDBObject();
+                    eventQuery.put("eventId", event.getId());
+                    eventQuery.put("date", date);
+                    long count = shiftCollection.count(eventQuery);
+                    for (int i = 0; i < (Integer.parseInt(event.getMinEmployeeNbr()) - count); i++) {
+                        Shift newShift = new Shift(event);
+                        unassignedShifts.add(newShift);
+                    }
+                }
+            }
+
+        }
+        return unassignedShifts;
     }
 }

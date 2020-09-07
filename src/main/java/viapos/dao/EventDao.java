@@ -1,5 +1,6 @@
 package viapos.dao;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.*;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
 import static java.util.Collections.singletonList;
@@ -52,6 +54,27 @@ public class EventDao extends BaseDao {
             MongoCollection<Event> eventCollection = db.getCollection(collectionName, Event.class);
 
             MongoCursor<Event> cursor = eventCollection.find().iterator();
+            try {
+                while (cursor.hasNext()) {
+                    events.add(cursor.next());
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        return events;
+    }
+
+    public ArrayList<Event> getEvents(String dayOfWeek, List<String> resources) {
+        ArrayList<Event> events = new ArrayList<>();
+        try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+            MongoCollection<Event> eventCollection = db.getCollection(collectionName, Event.class);
+
+            BasicDBObject whereQuery = new BasicDBObject();
+            whereQuery.put("daysOfWeek", dayOfWeek);
+
+            MongoCursor<Event> cursor = eventCollection.find(whereQuery).iterator();
             try {
                 while (cursor.hasNext()) {
                     events.add(cursor.next());

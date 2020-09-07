@@ -148,4 +148,13 @@ public interface ShiftsApi {
         method = RequestMethod.PUT)
     ResponseEntity<Void> updateShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Shifts objects to be updated" ,required=true )  @Valid @RequestBody List<Shift> shifts);
 
+    @ApiOperation(value = "Retrieve all Unassigned Shifts.", nickname = "getUnassignedShifts", notes = "", response = Shift.class, responseContainer = "List", tags={ "Shift", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = Shift.class, responseContainer = "List"),
+            @ApiResponse(code = 405, message = "Invalid input") })
+    @RequestMapping(value = "/shifts/unassigned",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.GET)
+    ResponseEntity<List<Shift>> getUnassignedShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Day of the Week to retrieve unassigned shifts for",required=false) @PathVariable("dayOfWeek") String dayOfWeek, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @PathVariable("date") String date, @ApiParam(value = "ID of ShiftType to return",required=true) @PathVariable("resources") List<String> resources);
 }

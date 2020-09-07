@@ -34,9 +34,25 @@ public class Shift   {
   @JsonProperty("shiftTypeId")
   private String shiftTypeId = null;
 
+  @JsonProperty("eventId")
+  private String eventId = null;
+  @JsonProperty("start")
+  private String start;
+  @JsonProperty("end")
+  private String end;
+  @JsonProperty("locationId")
+  private String locationId;
+
   public Shift id(String id) {
     this.id = id;
     return this;
+  }
+
+  public Shift(Event event){
+    this.start = event.getStart();
+    this.end = event.getEnd();
+    this.locationId = event.getLocationId();
+    this.eventId = event.getId();
   }
 
   /**
@@ -134,6 +150,13 @@ public class Shift   {
     this.shiftTypeId = shiftTypeId;
   }
 
+  public String getEventId() {
+    return eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {

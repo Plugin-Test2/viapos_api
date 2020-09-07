@@ -6,8 +6,10 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import viapos.dao.EventDao;
 import viapos.dao.LocationsDao;
 import viapos.dao.ShiftDao;
+import viapos.model.Event;
 import viapos.model.Location;
 import viapos.model.Shift;
 
@@ -20,6 +22,8 @@ public class ShiftService {
 
     @Autowired
     ShiftDao shiftDao;
+    @Autowired
+    EventDao eventDao;
 
     public boolean updateShifts(List<Shift> shifts) {
         for (Shift shift : shifts) {
@@ -45,5 +49,10 @@ public class ShiftService {
             shiftDao.deleteShift(shift);
         }
         return true;
+    }
+
+    public ArrayList<Shift> getUnassignedShifts(String dayOfWeek, String date, List<String> resources) {
+        List<Event> events = eventDao.getEvents(dayOfWeek, resources);
+        return shiftDao.getUnassignedShifts(events, date);
     }
 }

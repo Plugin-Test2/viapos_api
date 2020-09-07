@@ -129,4 +129,13 @@ public class ShiftsApiController implements ShiftsApi {
         }
     }
 
+    public ResponseEntity<List<Shift>> getUnassignedShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Day of week to retrieve unassigned shifts for",required=false) @PathVariable("dayOfWeek") String dayOfWeek, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @PathVariable("date") String date, @ApiParam(value = "ID of ShiftType to return",required=true) @PathVariable("resources") List<String> resources) {
+        List<Shift> shifts = shiftService.getUnassignedShifts(dayOfWeek, date, resources);
+        if (shifts != null) {
+            return new ResponseEntity<List<Shift>>(shifts, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<Shift>>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
