@@ -73,6 +73,7 @@ public class EventDao extends BaseDao {
 
             BasicDBObject whereQuery = new BasicDBObject();
             whereQuery.put("daysOfWeek", dayOfWeek);
+            System.out.println("Pulling events for" + resources.toString() + " and day of week: " + dayOfWeek);
 
             MongoCursor<Event> cursor = eventCollection.find(whereQuery).iterator();
             try {
