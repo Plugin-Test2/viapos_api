@@ -100,7 +100,7 @@ public class ShiftDao extends BaseDao {
                     eventQuery.put("date", date);
                     long count = shiftCollection.count(eventQuery);
                     for (int i = 0; i < (Integer.parseInt(event.getMinEmployeeNbr()) - count); i++) {
-                        Shift newShift = new Shift(event);
+                        Shift newShift = new Shift(event, date);
                         unassignedShifts.add(newShift);
                     }
                 }

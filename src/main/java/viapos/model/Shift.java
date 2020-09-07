@@ -48,9 +48,9 @@ public class Shift   {
     return this;
   }
 
-  public Shift(Event event){
-    this.start = event.getStart();
-    this.end = event.getEnd();
+  public Shift(Event event, String date){
+    this.start = date + "T" + event.getStart();
+    this.end = date + "T" + event.getEnd();
     this.locationId = event.getLocationId();
     this.eventId = event.getId();
   }
