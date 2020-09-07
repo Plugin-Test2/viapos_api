@@ -24,6 +24,8 @@ public class Event {
     private List<String> daysOfWeek;
     @JsonProperty("exclusions")
     private List<Exclusion> exclusions;
+    @JsonProperty("minEmployeeNbr")
+    private String minEmployeeNbr;
 
     public String getStart() {
         return start;
@@ -95,5 +97,13 @@ public class Event {
 
     public void setExclusions(List<Exclusion> exclusions) {
         this.exclusions = exclusions;
+    }
+
+    public String getMinEmployeeNbr() {
+        return minEmployeeNbr;
+    }
+
+    public void setMinEmployeeNbr(String minEmployeeNbr) {
+        this.minEmployeeNbr = minEmployeeNbr;
     }
 }
