@@ -61,6 +61,7 @@ public class Shift   {
     }
     this.locationId = event.getLocationId();
     this.eventId = event.getId();
+    this.name = "Unassigned";
   }
 
   /**
