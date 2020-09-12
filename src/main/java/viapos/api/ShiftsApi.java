@@ -2,6 +2,8 @@ package viapos.api;
 
 
 import java.util.List;
+
+import viapos.model.SchedulingRequest;
 import viapos.model.Shift;
 import viapos.model.ShiftType;
 import io.swagger.annotations.*;
@@ -157,4 +159,17 @@ public interface ShiftsApi {
             consumes = { "application/json" },
             method = RequestMethod.GET)
     ResponseEntity<List<Shift>> getUnassignedShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Day of the Week to retrieve unassigned shifts for",required=false) @RequestParam("dayOfWeek") String dayOfWeek, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @RequestParam("date") String date, @ApiParam(value = "ID of ShiftType to return",required=true) @RequestParam("resources") List<String> resources);
+
+    @ApiOperation(value = "Schedules shifts for a perdio", nickname = "scheduleShifts", notes = "", response = Shift.class, responseContainer = "List", tags={ "Shift", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "ShiftTypes created", response = Shift.class, responseContainer = "List"),
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "ShiftTypes not found"),
+            @ApiResponse(code = 405, message = "Validation exception") })
+    @RequestMapping(value = "/shifts/schedule",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.POST)
+    ResponseEntity<List<Shift>> scheduleShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ShiftTypes objects to be created" ,required=true )  @Valid @RequestBody SchedulingRequest schedulingRequest);
+
 }

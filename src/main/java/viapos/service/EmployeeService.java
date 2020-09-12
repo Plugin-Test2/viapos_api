@@ -7,8 +7,10 @@ import com.mongodb.client.MongoDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import viapos.dao.EmployeeDao;
+import viapos.dao.EmployeeTypeDao;
 import viapos.dao.LocationsDao;
 import viapos.model.Employee;
+import viapos.model.EmployeeType;
 import viapos.model.Location;
 
 import java.util.ArrayList;
@@ -20,6 +22,8 @@ public class EmployeeService {
 
     @Autowired
     EmployeeDao employeeDao;
+    @Autowired
+    EmployeeTypeDao employeeTypeDao;
 
     public boolean updateEmployees(List<Employee> employees) {
         for (Employee employee : employees) {
@@ -43,6 +47,32 @@ public class EmployeeService {
     public boolean deleteEmployees(List<Employee> employees) {
         for (Employee employee : employees) {
             employeeDao.deleteEmployee(employee);
+        }
+        return true;
+    }
+
+    public boolean updateEmployeeTypes(List<EmployeeType> employeeTypes) {
+        for (EmployeeType employeeType : employeeTypes) {
+            employeeTypeDao.updateEmployeeType(employeeType);
+        }
+        return true;
+    }
+
+    public ArrayList<EmployeeType> getEmployeeTypes() {
+        return employeeTypeDao.getEmployeeTypes();
+    }
+
+    public boolean createEmployeeTypes(List<EmployeeType> employeeTypes) {
+        for (EmployeeType employeeType : employeeTypes) {
+            employeeType.setId(UUID.randomUUID().toString());
+            employeeTypeDao.createEmployeeType(employeeType);
+        }
+        return true;
+    }
+
+    public boolean deleteEmployeeTypes(List<EmployeeType> employeeTypes) {
+        for (EmployeeType employeeType : employeeTypes) {
+            employeeTypeDao.deleteEmployeeType(employeeType);
         }
         return true;
     }

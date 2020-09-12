@@ -1,6 +1,7 @@
 package viapos.dao;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.client.*;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,28 @@ public class EventDao extends BaseDao {
             BasicDBObject whereQuery = new BasicDBObject();
             whereQuery.put("daysOfWeek", dayOfWeek);
             whereQuery.put("locationId", new BasicDBObject("$in", resources));
+
+            MongoCursor<Event> cursor = eventCollection.find(whereQuery).iterator();
+            try {
+                while (cursor.hasNext()) {
+                    events.add(cursor.next());
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        return events;
+    }
+
+    public ArrayList<Event> getEvents(String start, String end, List<String> resources) {
+        ArrayList<Event> events = new ArrayList<>();
+        try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+            MongoCollection<Event> eventCollection = db.getCollection(collectionName, Event.class);
+
+            BasicDBObject whereQuery = new BasicDBObject();
+            whereQuery.put("locationId", new BasicDBObject("$in", resources));
+            whereQuery.put("dateAdded", BasicDBObjectBuilder.start("$gte", start).add("$lte", end).get());
 
             MongoCursor<Event> cursor = eventCollection.find(whereQuery).iterator();
             try {

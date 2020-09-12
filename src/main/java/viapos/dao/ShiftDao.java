@@ -1,6 +1,7 @@
 package viapos.dao;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.client.*;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,6 +102,29 @@ public class ShiftDao extends BaseDao {
                     long count = shiftCollection.count(eventQuery);
                     for (int i = 0; i < (Integer.parseInt(event.getMinEmployeeNbr()) - count); i++) {
                         Shift newShift = new Shift(event, date);
+                        unassignedShifts.add(newShift);
+                    }
+                }
+            }
+
+        }
+        return unassignedShifts;
+    }
+
+    public ArrayList<Shift> getUnassignedShifts(List<Event> events, String startDate, String endDate) {
+        ArrayList<Shift> unassignedShifts = new ArrayList<>();
+        try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+            MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
+
+            for (Event event:events) {
+                if (event.getMinEmployeeNbr() != null && Integer.parseInt(event.getMinEmployeeNbr()) > 0) {
+                    BasicDBObject eventQuery = new BasicDBObject();
+                    eventQuery.put("eventId", event.getId());
+                    eventQuery.put("date", BasicDBObjectBuilder.start("$gte", startDate).add("$lte", endDate).get());
+                    long count = shiftCollection.count(eventQuery);
+                    for (int i = 0; i < (Integer.parseInt(event.getMinEmployeeNbr()) - count); i++) {
+                        Shift newShift = new Shift(event, startDate);
                         unassignedShifts.add(newShift);
                     }
                 }
