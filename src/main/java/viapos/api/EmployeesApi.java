@@ -146,4 +146,28 @@ public interface EmployeesApi {
             consumes = { "application/json" },
             method = RequestMethod.PUT)
     ResponseEntity<Void> updateEmployeeTypes(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Employee Type objects to be updated" ,required=true )  @Valid @RequestBody List<EmployeeType> employeeTypes);
+
+    @ApiOperation(value = "Delete a single Employee", nickname = "deleteEmployee", notes = "", tags={ "Employee", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "Employee not found"),
+            @ApiResponse(code = 405, message = "Validation exception") })
+    @RequestMapping(value = "/employees/{employeeId}",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.DELETE)
+    ResponseEntity<Void> deleteEmployee(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ID of Employee to delete",required=true) @PathVariable("employeeId") String employeeId);
+
+    @ApiOperation(value = "Delete a single Employee Type", nickname = "deleteEmployeeType", notes = "", tags={ "Employee", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "Employee Type not found"),
+            @ApiResponse(code = 405, message = "Validation exception") })
+    @RequestMapping(value = "/employees/types/{employeeTypeId}",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.DELETE)
+    ResponseEntity<Void> deleteEmployeeType(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ID of Employee Type to delete",required=true) @PathVariable("employeeTypeId") String employeeTypeId);
 }

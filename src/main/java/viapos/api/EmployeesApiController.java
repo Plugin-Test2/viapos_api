@@ -139,4 +139,22 @@ public class EmployeesApiController implements EmployeesApi {
         }
     }
 
+    public ResponseEntity<Void> deleteEmployee(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ID of Event to return",required=true) @PathVariable("employeeId") String employeeId) {
+        boolean creation = employeeService.deleteEmployee(employeeId);
+        if (creation) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public ResponseEntity<Void> deleteEmployeeType(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ID of Event to return",required=true) @PathVariable("employeeTypeId") String employeeTypeId) {
+        boolean creation = employeeService.deleteEmployeeType(employeeTypeId);
+        if (creation) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

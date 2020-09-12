@@ -11,6 +11,7 @@ import viapos.dao.EmployeeTypeDao;
 import viapos.dao.LocationsDao;
 import viapos.model.Employee;
 import viapos.model.EmployeeType;
+import viapos.model.Event;
 import viapos.model.Location;
 
 import java.util.ArrayList;
@@ -74,6 +75,20 @@ public class EmployeeService {
         for (EmployeeType employeeType : employeeTypes) {
             employeeTypeDao.deleteEmployeeType(employeeType);
         }
+        return true;
+    }
+
+    public boolean deleteEmployee(String id) {
+        Employee employee = new Employee();
+        employee.setId(id);
+        employeeDao.deleteEmployee(employee);
+        return true;
+    }
+
+    public boolean deleteEmployeeType(String id) {
+        EmployeeType employeeType = new EmployeeType();
+        employeeType.setId(id);
+        employeeTypeDao.deleteEmployeeType(employeeType);
         return true;
     }
 }
