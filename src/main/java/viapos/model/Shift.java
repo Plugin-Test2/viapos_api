@@ -42,6 +42,8 @@ public class Shift   {
   private String end;
   @JsonProperty("locationId")
   private String locationId;
+  @JsonProperty("duration")
+  private String duration;
 
   public Shift id(String id) {
     this.id = id;
@@ -165,6 +167,38 @@ public class Shift   {
 
   public void setEventId(String eventId) {
     this.eventId = eventId;
+  }
+
+  public String getStart() {
+    return start;
+  }
+
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+  public String getEnd() {
+    return end;
+  }
+
+  public void setEnd(String end) {
+    this.end = end;
+  }
+
+  public String getLocationId() {
+    return locationId;
+  }
+
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
+  }
+
+  public String getDuration() {
+    return duration;
+  }
+
+  public void setDuration(String duration) {
+    this.duration = duration;
   }
 
   @Override

@@ -31,6 +31,12 @@ public class Employee   {
   @JsonProperty("availability")
   private String availability = null;
 
+  @JsonProperty("preferredWeeklyHours")
+  private String preferredWeeklyHours = null;
+
+  @JsonProperty("availableWeeklyHours")
+  private String availableWeeklyHours = null;
+
   public Employee id(String id) {
     this.id = id;
     return this;
@@ -111,6 +117,25 @@ public class Employee   {
     this.availability = availability;
   }
 
+  public String getPreferredWeeklyHours() {
+    return preferredWeeklyHours;
+  }
+
+  public void setPreferredWeeklyHours(String preferredWeeklyHours) {
+    this.preferredWeeklyHours = preferredWeeklyHours;
+  }
+
+  public String getAvalaibleWeeklyHours() {
+    return avalaibleWeeklyHours;
+  }
+
+  public void setAvalaibleWeeklyHours(String avalaibleWeeklyHours) {
+    this.avalaibleWeeklyHours = avalaibleWeeklyHours;
+  }
+
+  public void subtractAvalaibleWeeklyHours(String subtract) {
+    this.avalaibleWeeklyHours = Float.toString(Float.parseFloat(this.avalaibleWeeklyHours) - Float.parseFloat(subtract));
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {

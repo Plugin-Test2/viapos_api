@@ -77,7 +77,15 @@ public class ShiftService {
             List<Employee> employees = this.employeeDao.getEmployees();
 
             //create shifts 1 week at a time
-            shiftHelper.assignShifts(unassignedShifts, employees);
+            List<Shift> assignedShifts = shiftHelper.assignShifts(unassignedShifts, employees);
+            for (Shift shift:assignedShifts) {
+                if (shift.getId() == null || shift.getId().isEmpty()) {
+                    shift.setId(UUID.randomUUID().toString());
+                    shiftDao.createShifts(shift);
+                } else {
+                    shiftDao.updateShifts(shift);
+                }
+            }
         }
 
         return createdShifts;
