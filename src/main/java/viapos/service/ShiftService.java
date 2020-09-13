@@ -85,6 +85,7 @@ public class ShiftService {
                 } else {
                     shiftDao.updateShifts(shift);
                 }
+                createdShifts.add(shift);
             }
         }
 
