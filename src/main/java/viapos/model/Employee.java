@@ -125,16 +125,16 @@ public class Employee   {
     this.preferredWeeklyHours = preferredWeeklyHours;
   }
 
-  public String getAvalaibleWeeklyHours() {
-    return avalaibleWeeklyHours;
+  public String getAvailableWeeklyHours() {
+    return availableWeeklyHours;
   }
 
-  public void setAvalaibleWeeklyHours(String avalaibleWeeklyHours) {
-    this.avalaibleWeeklyHours = avalaibleWeeklyHours;
+  public void setAvailableWeeklyHours(String availableWeeklyHours) {
+    this.availableWeeklyHours = availableWeeklyHours;
   }
 
-  public void subtractAvalaibleWeeklyHours(String subtract) {
-    this.avalaibleWeeklyHours = Float.toString(Float.parseFloat(this.avalaibleWeeklyHours) - Float.parseFloat(subtract));
+  public void subtractAvailableWeeklyHours(String subtract) {
+    this.availableWeeklyHours = Float.toString(Float.parseFloat(this.availableWeeklyHours) - Float.parseFloat(subtract));
   }
 
   @Override

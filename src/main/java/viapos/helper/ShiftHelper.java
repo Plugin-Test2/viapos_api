@@ -21,7 +21,7 @@ public class ShiftHelper {
 
         for (Shift shift:unassignedShifts) {
             shift.setAssignedTo(orderedEmployees.first().getId());
-            orderedEmployees.first().subtractAvalaibleWeeklyHours(shift.getDuration());
+            orderedEmployees.first().subtractAvailableWeeklyHours(shift.getDuration());
         }
 
         return assignedShifts;
