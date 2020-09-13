@@ -69,9 +69,13 @@ public class ShiftService {
         List<Shift> createdShifts = new ArrayList<>();
         for (ScheduleWeek week:schedule) {
             List<Event> events = this.eventDao.getEvents(week.getStartDate().toString(), week.getEndDate().toString(), schedulingRequest.getLocations());
+            System.out.println("Scheduling for events: " + events.toArray().toString());
+            System.out.println("Number of events: " + events.size());
 
             // get unassiged shifts that week
             List<Shift> unassignedShifts = this.shiftDao.getUnassignedShifts(events, week.getStartDate().toString(), week.getEndDate().toString());
+            System.out.println("Scheduling for the unassignedShifts: " + unassignedShifts.toArray().toString());
+            System.out.println("Number of shifts: " + unassignedShifts.size());
 
             // get employees availability each week
             List<Employee> employees = this.employeeDao.getEmployees();

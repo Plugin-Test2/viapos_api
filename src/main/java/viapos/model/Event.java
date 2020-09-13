@@ -10,6 +10,10 @@ public class Event {
     private String start;
     @JsonProperty("end")
     private String end;
+    @JsonProperty("startTime")
+    private String startTime;
+    @JsonProperty("endTime")
+    private String endTime;
     @JsonProperty("id")
     private String id;
     @JsonProperty("name")
@@ -107,6 +111,22 @@ public class Event {
 
     public void setMinEmployeeNbr(String minEmployeeNbr) {
         this.minEmployeeNbr = minEmployeeNbr;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public String getMinShiftsNbr() {

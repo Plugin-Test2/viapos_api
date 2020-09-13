@@ -18,7 +18,6 @@ public class DateHelper {
         ScheduleWeek firstWeek = new ScheduleWeek();
         firstWeek.setStartDate(startDate);
         List<ScheduleWeek> scheduleWeeks = new ArrayList<>();
-        scheduleWeeks.add(firstWeek);
         while (startDate.isBefore(endDate)) {
             ScheduleWeek week = new ScheduleWeek();
             week.setStartDate(startDate);
@@ -27,7 +26,11 @@ public class DateHelper {
             } else {
                 week.setEndDate(endDate);
             }
+            startDate = startDate.plusDays(sevenDigit);
             scheduleWeeks.add(week);
+        }
+        for (ScheduleWeek week:scheduleWeeks) {
+            System.out.println("Schedulingggg new week of: " + week.getStartDate() + " " + week.getEndDate());
         }
         return scheduleWeeks;
     }
