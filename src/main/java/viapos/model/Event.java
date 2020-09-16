@@ -2,15 +2,16 @@ package viapos.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 public class Event {
 
     @JsonProperty("start")
-    private Date start;
+    private LocalDate start;
     @JsonProperty("end")
-    private Date end;
+    private LocalDate end;
     @JsonProperty("startTime")
     private String startTime;
     @JsonProperty("endTime")
@@ -34,19 +35,19 @@ public class Event {
     @JsonProperty("minShiftsNbr")
     private String minShiftsNbr;
 
-    public Date getStart() {
+    public LocalDate getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(LocalDate start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public LocalDate getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd(LocalDate end) {
         this.end = end;
     }
 
