@@ -17,6 +17,7 @@ import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -75,6 +76,36 @@ public class EventDao extends BaseDao {
             BasicDBObject whereQuery = new BasicDBObject();
             whereQuery.put("daysOfWeek", dayOfWeek);
             whereQuery.put("locationId", new BasicDBObject("$in", resources));
+
+            MongoCursor<Event> cursor = eventCollection.find(whereQuery).iterator();
+            try {
+                while (cursor.hasNext()) {
+                    events.add(cursor.next());
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        return events;
+    }
+
+    public ArrayList<Event> getEvents(String date) {
+        ArrayList<Event> events = new ArrayList<>();
+        try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+            MongoCollection<Event> eventCollection = db.getCollection(collectionName, Event.class);
+
+            LocalDate localDate = LocalDate.parse(date);
+            int dayInt = localDate.getDayOfWeek().getValue();
+            if (dayInt == 7) {
+                dayInt = 0;
+            }
+            String day = Integer.toString(dayInt);
+
+            BasicDBObject whereQuery = new BasicDBObject();
+            whereQuery.put("start", new BasicDBObject("$lte", localDate));
+            whereQuery.put("end", new BasicDBObject("$gte", localDate));
+            whereQuery.put("daysOfWeek", day);
 
             MongoCursor<Event> cursor = eventCollection.find(whereQuery).iterator();
             try {

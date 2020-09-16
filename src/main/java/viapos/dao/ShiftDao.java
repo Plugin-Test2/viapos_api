@@ -73,6 +73,30 @@ public class ShiftDao extends BaseDao {
         return shifts;
     }
 
+    public ArrayList<Shift> getShifts(String date) {
+        ArrayList<Shift> shifts = new ArrayList<>();
+        try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+            MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
+
+            LocalDate localDate = LocalDate.parse(date);
+
+            BasicDBObject eventQuery = new BasicDBObject();
+            eventQuery.put("start", new BasicDBObject("$gte", localDate));
+            eventQuery.put("end", new BasicDBObject("$lte", localDate.plusDays(this.oneDay)));
+
+            MongoCursor<Shift> cursor  = shiftCollection.find(eventQuery).iterator();
+            try {
+                while (cursor.hasNext()) {
+                    shifts.add(cursor.next());
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        return shifts;
+    }
+
     public boolean createShifts(Shift shift) {
         try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
             MongoDatabase db = mongoClient.getDatabase(databaseName);
@@ -100,18 +124,18 @@ public class ShiftDao extends BaseDao {
             MongoDatabase db = mongoClient.getDatabase(databaseName);
             MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
 
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
-            Date date = formatter.parse(dateStr);
+            LocalDate date = LocalDate.parse(dateStr);
 
             for (Event event:events) {
                 if (event.getMinEmployeeNbr() != null && Integer.parseInt(event.getMinEmployeeNbr()) > 0) {
                     BasicDBObject eventQuery = new BasicDBObject();
                     eventQuery.put("eventId", event.getId());
-                    eventQuery.put("date", date);
+                    eventQuery.put("start", new BasicDBObject("$gte", date));
+                    eventQuery.put("end", new BasicDBObject("$lte", date.plusDays(this.oneDay)));
                     long count = shiftCollection.count(eventQuery);
                     for (int i = 0; i < (Integer.parseInt(event.getMinEmployeeNbr()) - count); i++) {
-                        // Shift newShift = new Shift(event, date);
-                        // unassignedShifts.add(newShift);
+                        Shift newShift = new Shift(event, date);
+                        unassignedShifts.add(newShift);
                     }
                 }
             }

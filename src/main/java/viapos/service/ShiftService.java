@@ -43,6 +43,13 @@ public class ShiftService {
         return shiftDao.getShifts();
     }
 
+    public List<Shift> getShifts(String date) {
+        List<Shift> assignedShifts = shiftDao.getShifts(date);
+        List<Shift> unassignedShifts = getUnassignedShifts(date);
+        assignedShifts.addAll(unassignedShifts);
+        return assignedShifts;
+    }
+
     public boolean createShifts(List<Shift> shifts) {
         for (Shift shift : shifts) {
             shift.setId(UUID.randomUUID().toString());
@@ -60,6 +67,11 @@ public class ShiftService {
 
     public ArrayList<Shift> getUnassignedShifts(String dayOfWeek, String date, List<String> resources) {
         List<Event> events = eventDao.getEvents(dayOfWeek, resources);
+        return shiftDao.getUnassignedShifts(events, date);
+    }
+
+    public ArrayList<Shift> getUnassignedShifts(String date) {
+        List<Event> events = eventDao.getEvents(date);
         return shiftDao.getUnassignedShifts(events, date);
     }
 

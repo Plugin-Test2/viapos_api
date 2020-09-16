@@ -54,6 +54,8 @@ public class Shift   {
     return this;
   }
 
+  public Shift(){}
+
   public Shift(Event event, LocalDate date){
     this.start = LocalDateTime.parse(date.toString() + "T" + event.getStartTime());
     this.end = LocalDateTime.parse(date.toString() + "T" + event.getEndTime());
