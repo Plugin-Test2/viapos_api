@@ -1,16 +1,14 @@
 package viapos.dao;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.BasicDBObjectBuilder;
+import com.mongodb.*;
 import com.mongodb.client.*;
+import com.mongodb.client.MongoClient;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import viapos.model.Distribution;
 import viapos.model.Event;
 import viapos.model.Location;
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.FindOneAndReplaceOptions;
 import com.mongodb.client.model.ReturnDocument;
@@ -18,7 +16,9 @@ import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -94,11 +94,27 @@ public class EventDao extends BaseDao {
             MongoDatabase db = mongoClient.getDatabase(databaseName);
             MongoCollection<Event> eventCollection = db.getCollection(collectionName, Event.class);
 
-            BasicDBObject whereQuery = new BasicDBObject();
-            whereQuery.put("locationId", new BasicDBObject("$in", resources));
-            whereQuery.put("dateAdded", BasicDBObjectBuilder.start("$gte", start).add("$lte", end).get());
+            System.out.println("parsing... " + start + " " + end);
 
-            MongoCursor<Event> cursor = eventCollection.find(whereQuery).iterator();
+            BasicDBObject query = new BasicDBObject();
+            try {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//                whereQuery.put("start", new BasicDBObject("$gte", formatter.parse(start)));
+//                whereQuery.put("end", new BasicDBObject("$lte", formatter.parse(end)));
+                DBObject clause1 = new BasicDBObject("start", new BasicDBObject("$lte", formatter.parse(end)));
+                DBObject clause2 = new BasicDBObject("end", new BasicDBObject("$gte", formatter.parse(start)));
+                BasicDBList or = new BasicDBList();
+                or.add(clause1);
+                or.add(clause2);
+                query = new BasicDBObject("$or", or);
+            } catch (Exception e) {
+                System.out.println("Issue parsing date in get events");
+            }
+            // whereQuery.put("locationId", new BasicDBObject("$in", resources));
+//            whereQuery.put("start", new BasicDBObject("$gte", start));
+//            whereQuery.put("end", new BasicDBObject("$lte", end));
+
+            MongoCursor<Event> cursor = eventCollection.find(query).iterator();
             try {
                 while (cursor.hasNext()) {
                     events.add(cursor.next());

@@ -15,6 +15,7 @@ import viapos.helper.ShiftHelper;
 import viapos.model.*;
 
 import java.lang.reflect.Array;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -82,6 +83,7 @@ public class ShiftService {
 
             //create shifts 1 week at a time
             List<Shift> assignedShifts = shiftHelper.assignShifts(unassignedShifts, employees);
+            System.out.println("Assigned shifts are: " + assignedShifts.size());
             for (Shift shift:assignedShifts) {
                 if (shift.getId() == null || shift.getId().isEmpty()) {
                     shift.setId(UUID.randomUUID().toString());

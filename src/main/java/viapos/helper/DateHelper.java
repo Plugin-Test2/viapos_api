@@ -29,9 +29,6 @@ public class DateHelper {
             startDate = startDate.plusDays(sevenDigit);
             scheduleWeeks.add(week);
         }
-        for (ScheduleWeek week:scheduleWeeks) {
-            System.out.println("Schedulingggg new week of: " + week.getStartDate() + " " + week.getEndDate());
-        }
         return scheduleWeeks;
     }
 }

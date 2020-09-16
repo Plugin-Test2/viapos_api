@@ -1,5 +1,9 @@
 package viapos.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,9 +41,9 @@ public class Shift   {
   @JsonProperty("eventId")
   private String eventId = null;
   @JsonProperty("start")
-  private String start;
+  private LocalDateTime start;
   @JsonProperty("end")
-  private String end;
+  private LocalDateTime end;
   @JsonProperty("locationId")
   private String locationId;
   @JsonProperty("duration")
@@ -50,20 +54,12 @@ public class Shift   {
     return this;
   }
 
-  public Shift(Event event, String date){
-    if (event.getStart().contains("T")) {
-      this.start = date + "T" + event.getStart().split("T")[1];
-    } else {
-      this.start = date + "T" + event.getStart();
-    }
-    if (event.getEnd().contains("T")) {
-      this.end = date + "T" + event.getEnd().split("T")[1];
-    } else {
-      this.end = date + "T" + event.getEnd();
-    }
+  public Shift(Event event, LocalDate date){
+    this.start = LocalDateTime.parse(date.toString() + "T" + event.getStartTime());
+    this.end = LocalDateTime.parse(date.toString() + "T" + event.getEndTime());
     this.locationId = event.getLocationId();
     this.eventId = event.getId();
-    this.name = "Unassigned";
+    this.name = event.getName();
   }
 
   /**
@@ -169,19 +165,19 @@ public class Shift   {
     this.eventId = eventId;
   }
 
-  public String getStart() {
+  public LocalDateTime getStart() {
     return start;
   }
 
-  public void setStart(String start) {
+  public void setStart(LocalDateTime start) {
     this.start = start;
   }
 
-  public String getEnd() {
+  public LocalDateTime getEnd() {
     return end;
   }
 
-  public void setEnd(String end) {
+  public void setEnd(LocalDateTime end) {
     this.end = end;
   }
 
@@ -194,7 +190,11 @@ public class Shift   {
   }
 
   public String getDuration() {
-    return duration;
+    if (this.start != null && this.end != null) {
+      return Long.toString(this.start.until(this.end, ChronoUnit.MONTHS));
+    } else {
+      return "0";
+    }
   }
 
   public void setDuration(String duration) {

@@ -12,18 +12,17 @@ import java.util.TreeSet;
 @Component
 public class ShiftHelper {
 
-    public List<Shift> assignShifts(List<Shift> unassignedShifts, List<Employee> employees) {
-        List<Shift> assignedShifts = new ArrayList<>();
+    public List<Shift> assignShifts(List<Shift> shifts, List<Employee> employees) {
         TreeSet<Employee> orderedEmployees = new TreeSet<>(new EmployeeComparator());
         for (Employee employee:employees) {
             orderedEmployees.add(employee);
         }
 
-        for (Shift shift:unassignedShifts) {
+        for (Shift shift:shifts) {
             shift.setAssignedTo(orderedEmployees.first().getId());
             orderedEmployees.first().subtractAvailableWeeklyHours(shift.getDuration());
         }
 
-        return assignedShifts;
+        return shifts;
     }
 }
