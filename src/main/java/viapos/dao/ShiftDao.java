@@ -1,8 +1,8 @@
 package viapos.dao;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.BasicDBObjectBuilder;
+import com.mongodb.*;
 import com.mongodb.client.*;
+import com.mongodb.client.MongoClient;
 import jdk.vm.ci.meta.Local;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
 import viapos.model.Distribution;
 import viapos.model.Event;
 import viapos.model.Location;
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.FindOneAndReplaceOptions;
 import com.mongodb.client.model.ReturnDocument;
@@ -73,19 +71,53 @@ public class ShiftDao extends BaseDao {
         return shifts;
     }
 
-    public ArrayList<Shift> getShifts(String date) {
+    public ArrayList<Shift> getShifts(LocalDate date) {
         ArrayList<Shift> shifts = new ArrayList<>();
         try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
             MongoDatabase db = mongoClient.getDatabase(databaseName);
             MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
 
-            LocalDate localDate = LocalDate.parse(date);
-
             BasicDBObject eventQuery = new BasicDBObject();
-            eventQuery.put("start", new BasicDBObject("$gte", localDate));
-            eventQuery.put("end", new BasicDBObject("$lte", localDate.plusDays(this.oneDay)));
+            eventQuery.put("start", new BasicDBObject("$gte", date));
+            eventQuery.put("end", new BasicDBObject("$lte", date.plusDays(this.oneDay)));
 
             MongoCursor<Shift> cursor  = shiftCollection.find(eventQuery).iterator();
+            try {
+                while (cursor.hasNext()) {
+                    shifts.add(cursor.next());
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        return shifts;
+    }
+    public ArrayList<Shift> getShifts(LocalDate start, LocalDate end, List<String> events) {
+        ArrayList<Shift> shifts = new ArrayList<>();
+        try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+            MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
+
+            BasicDBObject query = new BasicDBObject();
+            DBObject clause1 = new BasicDBObject("start", new BasicDBObject("$lte", end));
+            DBObject clause2 = new BasicDBObject("end", new BasicDBObject("$gte", start));
+            BasicDBList or = new BasicDBList();
+            or.add(clause1);
+            or.add(clause2);
+            query = new BasicDBObject("$or", or);
+
+            BasicDBObject inQuery = new BasicDBObject();
+            if (events != null) {
+                inQuery.put("locationId", new BasicDBObject("$in", events));
+            }
+
+            BasicDBList and = new BasicDBList();
+            and.add(query);
+            and.add(inQuery);
+
+            BasicDBObject totalQuery = new BasicDBObject("$and", and);
+
+            MongoCursor<Shift> cursor  = shiftCollection.find(totalQuery).iterator();
             try {
                 while (cursor.hasNext()) {
                     shifts.add(cursor.next());
@@ -118,13 +150,11 @@ public class ShiftDao extends BaseDao {
         return true;
     }
 
-    public ArrayList<Shift> getUnassignedShifts(List<Event> events, String dateStr) {
+    public ArrayList<Shift> getUnassignedShifts(List<Event> events, LocalDate date) {
         ArrayList<Shift> unassignedShifts = new ArrayList<>();
         try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
             MongoDatabase db = mongoClient.getDatabase(databaseName);
             MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
-
-            LocalDate date = LocalDate.parse(dateStr);
 
             for (Event event:events) {
                 if (event.getMinEmployeeNbr() != null && Integer.parseInt(event.getMinEmployeeNbr()) > 0) {
@@ -146,14 +176,12 @@ public class ShiftDao extends BaseDao {
         return unassignedShifts;
     }
 
-    public ArrayList<Shift> getUnassignedShifts(List<Event> events, String start, String end) {
+    public ArrayList<Shift> getUnassignedShifts(List<Event> events, LocalDate start, LocalDate end) {
         ArrayList<Shift> unassignedShifts = new ArrayList<>();
         try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
             MongoDatabase db = mongoClient.getDatabase(databaseName);
             MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
 
-            LocalDate startDate = LocalDate.parse(start);
-            LocalDate endDate = LocalDate.parse(end);
 
             for (Event event:events) {
                 BasicDBObject eventQuery = new BasicDBObject();
@@ -162,14 +190,14 @@ public class ShiftDao extends BaseDao {
                     long count = shiftCollection.count(eventQuery);
                 } else if (event.getDaysOfWeek() != null && event.getDaysOfWeek().size() > 0){
                     for (String day:event.getDaysOfWeek()) {
-                        int mappedDay = startDate.getDayOfWeek().getValue();
+                        int mappedDay = start.getDayOfWeek().getValue();
                         if (mappedDay == 7) {
                             mappedDay = 0;
                         }
                         int dayDifference = Integer.parseInt(day) - mappedDay;
                         LocalDate eventDate = LocalDate.now();
                         if (dayDifference >= 0) {
-                            eventDate = startDate.plusDays(dayDifference);
+                            eventDate = start.plusDays(dayDifference);
                             eventQuery.put("start", new BasicDBObject("$gte", eventDate));
                             eventQuery.put("end", new BasicDBObject("$lte", eventDate.plusDays(this.oneDay)));
                             long count = shiftCollection.count(eventQuery);

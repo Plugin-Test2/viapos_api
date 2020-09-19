@@ -19,8 +19,8 @@ import javax.validation.constraints.*;
 
 
 public class Route   {
-  @JsonProperty("id")
-  private String id = null;
+  @JsonProperty("shiftId")
+  private String shiftId = null;
 
   @JsonProperty("number")
   private String number = null;
@@ -37,8 +37,8 @@ public class Route   {
   @JsonProperty("setter")
   private String setter = null;
 
-  public Route id(String id) {
-    this.id = id;
+  public Route id(String shiftId) {
+    this.shiftId = shiftId;
     return this;
   }
 
@@ -49,12 +49,12 @@ public class Route   {
   @ApiModelProperty(value = "")
 
 
-  public String getId() {
-    return id;
+  public String getShiftId() {
+    return shiftId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setShiftId(String shiftId) {
+    this.shiftId = shiftId;
   }
 
   public Route number(String number) {
@@ -167,7 +167,7 @@ public class Route   {
       return false;
     }
     Route route = (Route) o;
-    return Objects.equals(this.id, route.id) &&
+    return Objects.equals(this.shiftId, route.shiftId) &&
         Objects.equals(this.number, route.number) &&
         Objects.equals(this.sectionId, route.sectionId) &&
         Objects.equals(this.assignedGrade, route.assignedGrade) &&
@@ -177,7 +177,7 @@ public class Route   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, number, sectionId, assignedGrade, grade, setter);
+    return Objects.hash(shiftId, number, sectionId, assignedGrade, grade, setter);
   }
 
   @Override
@@ -185,7 +185,7 @@ public class Route   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Route {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    id: ").append(toIndentedString(shiftId)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    sectionId: ").append(toIndentedString(sectionId)).append("\n");
     sb.append("    assignedGrade: ").append(toIndentedString(assignedGrade)).append("\n");

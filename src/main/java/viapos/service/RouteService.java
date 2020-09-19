@@ -34,7 +34,7 @@ public class RouteService {
 
     public boolean createRoutes(List<Route> routes) {
         for (Route route : routes) {
-            route.setId(UUID.randomUUID().toString());
+            route.setNumber(UUID.randomUUID().toString());
             routeDao.createRoutes(route);
         }
         return true;

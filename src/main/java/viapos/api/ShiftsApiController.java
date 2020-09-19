@@ -1,5 +1,6 @@
 package viapos.api;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -115,9 +116,9 @@ public class ShiftsApiController implements ShiftsApi {
         }
     }
 
-    public ResponseEntity<List<Shift>> getShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @RequestParam("date") String date) {
+    public ResponseEntity<List<Shift>> getShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @RequestParam("date") LocalDate date) {
         List<Shift> shifts = new ArrayList<>();
-        if (date != null && !date.isEmpty()) {
+        if (date != null) {
             shifts = shiftService.getShifts(date);
         } else {
             shifts = shiftService.getShifts();
@@ -147,7 +148,7 @@ public class ShiftsApiController implements ShiftsApi {
         }
     }
 
-    public ResponseEntity<List<Shift>> getUnassignedShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Day of week to retrieve unassigned shifts for",required=false) @RequestParam("dayOfWeek") String dayOfWeek, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @RequestParam("date") String date, @ApiParam(value = "ID of ShiftType to return",required=true) @RequestParam("resources") List<String> resources) {
+    public ResponseEntity<List<Shift>> getUnassignedShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Day of week to retrieve unassigned shifts for",required=false) @RequestParam("dayOfWeek") String dayOfWeek, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @RequestParam("date") LocalDate date, @ApiParam(value = "ID of ShiftType to return",required=true) @RequestParam("resources") List<String> resources) {
         List<Shift> shifts = shiftService.getUnassignedShifts(dayOfWeek, date, resources);
         if (shifts != null) {
             return new ResponseEntity<List<Shift>>(shifts, HttpStatus.OK);

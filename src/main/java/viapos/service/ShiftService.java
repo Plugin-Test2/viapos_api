@@ -13,6 +13,7 @@ import viapos.model.*;
 
 import java.lang.reflect.Array;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -42,7 +43,7 @@ public class ShiftService {
         return shiftDao.getShifts();
     }
 
-    public List<Shift> getShifts(String date) {
+    public List<Shift> getShifts(LocalDate date) {
         List<Shift> assignedShifts = shiftDao.getShifts(date);
         List<Shift> unassignedShifts = getUnassignedShifts(date);
         assignedShifts.addAll(unassignedShifts);
@@ -64,12 +65,12 @@ public class ShiftService {
         return true;
     }
 
-    public ArrayList<Shift> getUnassignedShifts(String dayOfWeek, String date, List<String> resources) {
+    public ArrayList<Shift> getUnassignedShifts(String dayOfWeek, LocalDate date, List<String> resources) {
         List<Event> events = eventDao.getEvents(dayOfWeek, resources);
         return shiftDao.getUnassignedShifts(events, date);
     }
 
-    public ArrayList<Shift> getUnassignedShifts(String date) {
+    public ArrayList<Shift> getUnassignedShifts(LocalDate date) {
         List<Event> events = eventDao.getEvents(date);
         return shiftDao.getUnassignedShifts(events, date);
     }
@@ -80,14 +81,13 @@ public class ShiftService {
         List<ScheduleWeek> schedule = DateHelper.getWeeks(schedulingRequest.getStart(), schedulingRequest.getEnd());
         List<Shift> createdShifts = new ArrayList<>();
         for (ScheduleWeek week:schedule) {
-            List<Event> events = this.eventDao.getEvents(week.getStartDate().toString(), week.getEndDate().toString(), schedulingRequest.getLocations());
+            List<Event> events = this.eventDao.getEvents(week.getStartDate(), week.getEndDate(), schedulingRequest.getLocations());
             System.out.println("Scheduling for events: " + events.toArray().toString());
             System.out.println("Number of events: " + events.size());
 
             // get unassiged shifts that week
-            List<Shift> unassignedShifts = this.shiftDao.getUnassignedShifts(events, week.getStartDate().toString(), week.getEndDate().toString());
+            List<Shift> unassignedShifts = this.shiftDao.getUnassignedShifts(events, week.getStartDate(), week.getEndDate());
             System.out.println("Scheduling for the unassignedShifts: " + unassignedShifts.toArray().toString());
-            System.out.println("Number of shifts: " + unassignedShifts.size());
 
             // get employees availability each week
             List<Employee> employees = this.employeeDao.getEmployees();

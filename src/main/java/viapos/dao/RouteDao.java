@@ -37,7 +37,7 @@ public class RouteDao extends BaseDao {
             MongoDatabase db = mongoClient.getDatabase(databaseName);
             MongoCollection<Route> routeCollections = db.getCollection(collectionName, Route.class);
 
-            Document filterByGradeId = new Document("_id", route.getId());
+            Document filterByGradeId = new Document("_id", route.getNumber());
             FindOneAndReplaceOptions returnDocAfterReplace = new FindOneAndReplaceOptions().returnDocument(ReturnDocument.AFTER);
             Route updatedRoute = routeCollections.findOneAndReplace(filterByGradeId, route, returnDocAfterReplace);
         }
@@ -77,7 +77,7 @@ public class RouteDao extends BaseDao {
             MongoDatabase db = mongoClient.getDatabase(databaseName);
             MongoCollection<Route> routeCollection = db.getCollection(collectionName, Route.class);
 
-            Document routeId = new Document("_id", route.getId());
+            Document routeId = new Document("_id", route.getNumber());
             routeCollection.deleteOne(routeId);
         }
         return true;
