@@ -6,10 +6,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import viapos.dao.EmployeeDao;
-import viapos.dao.EventDao;
-import viapos.dao.LocationsDao;
-import viapos.dao.ShiftDao;
+import viapos.dao.*;
 import viapos.helper.DateHelper;
 import viapos.helper.ShiftHelper;
 import viapos.model.*;
@@ -25,6 +22,8 @@ public class ShiftService {
 
     @Autowired
     ShiftDao shiftDao;
+    @Autowired
+    ShiftTypeDao shiftTypeDao;
     @Autowired
     EventDao eventDao;
     @Autowired
@@ -108,5 +107,32 @@ public class ShiftService {
         }
 
         return createdShifts;
+    }
+
+    public boolean updateShiftTypes(List<ShiftType> shiftTypes) {
+        for (ShiftType shiftType : shiftTypes) {
+            shiftTypeDao.updateShiftTypes(shiftType);
+        }
+        return true;
+    }
+
+    public ArrayList<ShiftType> getShiftTypes() {
+        return shiftTypeDao.getShiftTypes();
+    }
+
+
+    public boolean createShiftTypes(List<ShiftType> shiftTypes) {
+        for (ShiftType shiftType : shiftTypes) {
+            shiftType.setId(UUID.randomUUID().toString());
+            shiftTypeDao.createShiftTypes(shiftType);
+        }
+        return true;
+    }
+
+    public boolean deleteShiftTypes(List<ShiftType> shiftTypes) {
+        for (ShiftType shiftType : shiftTypes) {
+            shiftTypeDao.deleteShiftType(shiftType);
+        }
+        return true;
     }
 }

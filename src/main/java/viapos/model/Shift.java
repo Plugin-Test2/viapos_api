@@ -193,7 +193,7 @@ public class Shift   {
 
   public String getDuration() {
     if (this.start != null && this.end != null) {
-      return Long.toString(this.start.until(this.end, ChronoUnit.MONTHS));
+      return Long.toString(this.start.until(this.end, ChronoUnit.HOURS));
     } else {
       return "0";
     }

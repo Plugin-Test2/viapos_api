@@ -8,11 +8,10 @@ public class EmployeeComparator implements Comparator<Employee> {
 
     @Override
     public int compare(Employee e1, Employee e2) {
-        if((Float.parseFloat(e1.getAvailableWeeklyHours()) / Float.parseFloat(e2.getPreferredWeeklyHours()))
-                > (Float.parseFloat(e2.getAvailableWeeklyHours()) / Float.parseFloat(e2.getPreferredWeeklyHours()))){
-            return 1;
-        } else {
+        if(Float.parseFloat(e1.getAvailableWeeklyHours()) > Float.parseFloat(e2.getAvailableWeeklyHours())){
             return -1;
+        } else {
+            return 1;
         }
     }
 }

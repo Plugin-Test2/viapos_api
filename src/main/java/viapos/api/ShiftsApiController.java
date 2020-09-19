@@ -45,7 +45,12 @@ public class ShiftsApiController implements ShiftsApi {
     }
 
     public ResponseEntity<Void> createShiftTypes(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ShiftTypes objects to be created" ,required=true )  @Valid @RequestBody List<ShiftType> shiftTypes) {
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+        boolean creation = shiftService.createShiftTypes(shiftTypes);
+        if (creation) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     public ResponseEntity<Void> createShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Shifts objects to be created" ,required=true )  @Valid @RequestBody List<Shift> shifts) {
@@ -58,7 +63,12 @@ public class ShiftsApiController implements ShiftsApi {
     }
 
     public ResponseEntity<Void> deleteShiftTypes(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ShiftTypes objects to be deleted" ,required=true )  @Valid @RequestBody List<ShiftType> shiftTypes) {
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+        boolean creation = shiftService.deleteShiftTypes(shiftTypes);
+        if (creation) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     public ResponseEntity<Void> deleteShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Shifts objects to be deleted" ,required=true )  @Valid @RequestBody List<Shift> shifts) {
@@ -97,16 +107,12 @@ public class ShiftsApiController implements ShiftsApi {
     }
 
     public ResponseEntity<List<ShiftType>> getShiftTypes(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept) {
-        if (accept != null && accept.contains("application/json")) {
-            try {
-                return new ResponseEntity<List<ShiftType>>(objectMapper.readValue("[ {  \"name\" : \"name\",  \"id\" : \"id\",  \"eligibileEmployeeTypeIds\" : [ \"eligibileEmployeeTypeIds\", \"eligibileEmployeeTypeIds\" ]}, {  \"name\" : \"name\",  \"id\" : \"id\",  \"eligibileEmployeeTypeIds\" : [ \"eligibileEmployeeTypeIds\", \"eligibileEmployeeTypeIds\" ]} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<ShiftType>>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
+        List<ShiftType> shiftTypes = shiftService.getShiftTypes();
+        if (shiftTypes != null) {
+            return new ResponseEntity<List<ShiftType>>(shiftTypes, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<ShiftType>>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-        return new ResponseEntity<List<ShiftType>>(HttpStatus.NOT_IMPLEMENTED);
     }
 
     public ResponseEntity<List<Shift>> getShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @RequestParam("date") String date) {
@@ -124,7 +130,12 @@ public class ShiftsApiController implements ShiftsApi {
     }
 
     public ResponseEntity<Void> updateShiftTypes(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "ShiftTypes objects to be updated" ,required=true )  @Valid @RequestBody List<ShiftType> shiftTypes) {
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+        boolean creation = shiftService.updateShiftTypes(shiftTypes);
+        if (creation) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     public ResponseEntity<Void> updateShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Shifts objects to be updated" ,required=true )  @Valid @RequestBody List<Shift> shifts) {
