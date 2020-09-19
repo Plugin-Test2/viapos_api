@@ -35,6 +35,8 @@ public class Event {
     private String minEmployeeNbr;
     @JsonProperty("minShiftsNbr")
     private String minShiftsNbr;
+    @JsonProperty("shiftType")
+    private String shiftType;
 
     public LocalDateTime getStart() {
         return start;
@@ -138,5 +140,13 @@ public class Event {
 
     public void setMinShiftsNbr(String minShiftsNbr) {
         this.minShiftsNbr = minShiftsNbr;
+    }
+
+    public String getShiftType() {
+        return shiftType;
+    }
+
+    public void setShiftType(String shiftType) {
+        this.shiftType = shiftType;
     }
 }

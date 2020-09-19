@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import viapos.dao.LocationsDao;
 import viapos.dao.RoutePlanDao;
+import viapos.dao.SectionDao;
+import viapos.dao.ShiftDao;
 import viapos.model.Location;
 import viapos.model.RoutePlan;
 
@@ -20,6 +22,10 @@ public class RoutePlanService {
 
     @Autowired
     RoutePlanDao routePlanDao;
+    @Autowired
+    ShiftDao shiftDao;
+    @Autowired
+    SectionDao sectionDao;
 
     public boolean updateRoutePlans(List<RoutePlan> routePlans) {
         for (RoutePlan routePlan : routePlans) {

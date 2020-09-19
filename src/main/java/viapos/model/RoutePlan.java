@@ -1,5 +1,6 @@
 package viapos.model;
 
+import java.time.LocalDate;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,10 +37,16 @@ public class RoutePlan   {
   private List<Route> routes = null;
 
   @JsonProperty("startDate")
-  private String startDate = null;
+  private LocalDate startDate = null;
 
   @JsonProperty("endDate")
-  private String endDate = null;
+  private LocalDate endDate = null;
+
+  @JsonProperty("sections")
+  private List<String> sections = null;
+
+  @JsonProperty("shiftTypes")
+  private List<String> shiftTypes = null;
 
   public RoutePlan id(String id) {
     this.id = id;
@@ -138,7 +145,7 @@ public class RoutePlan   {
     this.routes = routes;
   }
 
-  public RoutePlan startDate(String startDate) {
+  public RoutePlan startDate(LocalDate startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -150,15 +157,15 @@ public class RoutePlan   {
   @ApiModelProperty(value = "")
 
 
-  public String getStartDate() {
+  public LocalDate getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(String startDate) {
+  public void setStartDate(LocalDate startDate) {
     this.startDate = startDate;
   }
 
-  public RoutePlan endDate(String endDate) {
+  public RoutePlan endDate(LocalDate endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -170,14 +177,29 @@ public class RoutePlan   {
   @ApiModelProperty(value = "")
 
 
-  public String getEndDate() {
+  public LocalDate getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(String endDate) {
+  public void setEndDate(LocalDate endDate) {
     this.endDate = endDate;
   }
 
+  public List<String> getSections() {
+    return sections;
+  }
+
+  public void setSections(List<String> sections) {
+    this.sections = sections;
+  }
+
+  public List<String> getShiftTypes() {
+    return shiftTypes;
+  }
+
+  public void setShiftTypes(List<String> shiftTypes) {
+    this.shiftTypes = shiftTypes;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
