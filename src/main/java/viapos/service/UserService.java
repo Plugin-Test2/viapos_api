@@ -11,7 +11,7 @@ public class UserService {
     UserDao userDao;
 
     public User loginUser(User user) {
-        User loggedInUser = userDao.getUser(user.getId());
+        User loggedInUser = userDao.getUser(user.getUsername());
         if (loggedInUser != null && loggedInUser.getPassword() != null
                 && !loggedInUser.getPassword().isEmpty() && loggedInUser.getPassword().equals(user.getPassword())) {
             return loggedInUser;

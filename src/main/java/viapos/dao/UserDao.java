@@ -46,13 +46,13 @@ public class UserDao extends BaseDao {
         return true;
     }
 
-    public User getUser(String userId) {
+    public User getUser(String username) {
         User user = new User();
         try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
             MongoDatabase db = mongoClient.getDatabase(databaseName);
             MongoCollection<User> routesCollection = db.getCollection(collectionName, User.class);
 
-            BasicDBObject query = new BasicDBObject("_id", userId);
+            BasicDBObject query = new BasicDBObject("username", username);
 
             MongoCursor<User> cursor = routesCollection.find(query).iterator();
             try {
