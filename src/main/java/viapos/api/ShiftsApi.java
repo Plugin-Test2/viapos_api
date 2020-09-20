@@ -123,7 +123,7 @@ public interface ShiftsApi {
         produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.GET)
-    ResponseEntity<List<Shift>> getShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @RequestParam("date") String date, @ApiParam(value = "ID of ShiftType to return",required=false) @RequestParam("resources") List<String> shiftIds);
+    ResponseEntity<List<Shift>> getShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @RequestParam("date") String date, @ApiParam(value = "ID of shifts to return",required=false) @RequestParam("shiftIds") List<String> shiftIds);
 
 
     @ApiOperation(value = "Update an existing ShiftTypes", nickname = "updateShiftTypes", notes = "", tags={ "Shift", })

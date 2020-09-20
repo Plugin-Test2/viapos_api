@@ -116,7 +116,7 @@ public class ShiftsApiController implements ShiftsApi {
         }
     }
 
-    public ResponseEntity<List<Shift>> getShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @RequestParam("date") String date, @ApiParam(value = "ID of ShiftType to return",required=false) @RequestParam("resources") List<String> shiftIds) {
+    public ResponseEntity<List<Shift>> getShifts(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept, @ApiParam(value = "Date to retrieve unassigned shifts for",required=false) @RequestParam("date") String date, @ApiParam(value = "ID of the shifts to return",required=false) @RequestParam("shiftIds") List<String> shiftIds) {
         List<Shift> shifts = new ArrayList<>();
         LocalDate localDate = LocalDate.parse(date);
         if (shiftIds != null) {
