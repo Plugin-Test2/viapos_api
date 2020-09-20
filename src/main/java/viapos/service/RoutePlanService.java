@@ -79,6 +79,7 @@ public class RoutePlanService {
                 int sectionRoutesSet = 0;
                 int shiftsSet = 1;
                 int sectionMod = (int) Double.parseDouble(sectionCount.get(location)) % routesPerShift;
+                List<Route> routes = new ArrayList<>();
                 List<Section> locationSections = sectionsByLocation.get(location);
                 Iterator<Section> sectionIterator = locationSections.iterator();
                 Section section = sectionIterator.next();
@@ -92,6 +93,7 @@ public class RoutePlanService {
                         route.setNumber(Integer.toString(sectionRoutesSet + 1));
                         route.setSectionId(section.getId());
                         route.setShiftId(shift.getId());
+                        routes.add(route);
                         sectionRoutesSet++;
 
                         if (shiftsSet == sectionMod) {
@@ -102,6 +104,7 @@ public class RoutePlanService {
                         }
                     }
                 }
+                routePlan.setRoutes(routes);
             }
 
 
