@@ -228,7 +228,7 @@ public class ShiftDao extends BaseDao {
             MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
 
             BasicDBObject eventQuery = new BasicDBObject();
-            eventQuery.put("id", new BasicDBObject("$in", shiftIds));
+            eventQuery.put("_id", new BasicDBObject("$in", shiftIds));
 
             MongoCursor<Shift> cursor  = shiftCollection.find(eventQuery).iterator();
             try {
