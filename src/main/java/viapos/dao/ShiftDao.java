@@ -108,7 +108,7 @@ public class ShiftDao extends BaseDao {
 
             BasicDBObject inQuery = new BasicDBObject();
             if (events != null) {
-                inQuery.put("locationId", new BasicDBObject("$in", events));
+                inQuery.put("eventId", new BasicDBObject("$in", events));
             }
 
             BasicDBList and = new BasicDBList();
@@ -219,5 +219,26 @@ public class ShiftDao extends BaseDao {
 
         }
         return unassignedShifts;
+    }
+
+    public ArrayList<Shift> getShiftsByIds(List<String> shiftIds) {
+        ArrayList<Shift> shifts = new ArrayList<>();
+        try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+            MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
+
+            BasicDBObject eventQuery = new BasicDBObject();
+            eventQuery.put("id", new BasicDBObject("$in", shiftIds));
+
+            MongoCursor<Shift> cursor  = shiftCollection.find(eventQuery).iterator();
+            try {
+                while (cursor.hasNext()) {
+                    shifts.add(cursor.next());
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        return shifts;
     }
 }

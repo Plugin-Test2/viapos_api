@@ -66,7 +66,7 @@ public class RoutePlanService {
                 List<String> locationList = new ArrayList<>();
                 locationList.add(location);
                 List<Event> events = eventDao.getEvents(routePlan.getStartDate(), routePlan.getEndDate(), locationList, routePlan.getShiftTypes());
-
+                System.out.println("Pulling events: " + events.size());
                 // Get all shifts for that
                 List<String> eventList = events.stream()
                         .map(Event::getId)
@@ -75,6 +75,7 @@ public class RoutePlanService {
                 List<Shift> shifts = shiftDao.getUnassignedShifts(events, routePlan.getStartDate(), routePlan.getEndDate());
                 shifts.addAll(shiftDao.getShifts(routePlan.getStartDate(), routePlan.getEndDate(), eventList));
 
+                System.out.println("Total shifts: " + shifts.size());
                 int routesPerShift = (int) Math.ceil(Double.parseDouble(sectionCount.get(location)) / (double) shifts.size());
                 int sectionRoutesSet = 0;
                 int shiftsSet = 1;

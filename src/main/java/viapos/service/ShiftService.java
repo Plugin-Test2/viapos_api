@@ -135,4 +135,8 @@ public class ShiftService {
         }
         return true;
     }
+
+    public List<Shift> getShiftsByIds(List<String> shiftIds) {
+        return shiftDao.getShiftsByIds(shiftIds);
+    }
 }
