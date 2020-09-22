@@ -61,32 +61,35 @@ public class RoutePlanService {
                     }
                 }
             }
+            List<Route> routes = new ArrayList<>();
             for (String location: locations) {
                 // Retrieve events during this period
                 List<String> locationList = new ArrayList<>();
                 locationList.add(location);
                 List<Event> events = eventDao.getEvents(routePlan.getStartDate(), routePlan.getEndDate(), locationList, routePlan.getShiftTypes());
-                System.out.println("Pulling events: " + events.size());
                 // Get all shifts for that
                 List<String> eventList = events.stream()
                         .map(Event::getId)
                         .collect(Collectors.toList());
 
                 List<Shift> shifts = shiftDao.getUnassignedShifts(events, routePlan.getStartDate(), routePlan.getEndDate());
+                for (Shift shift:shifts) {
+                    shift.setAssignedTo("Unassigned");
+                    shift.setId(UUID.randomUUID().toString());
+                    shiftDao.createShifts(shift);
+                }
                 shifts.addAll(shiftDao.getShifts(routePlan.getStartDate(), routePlan.getEndDate(), eventList));
 
-                System.out.println("Total shifts: " + shifts.size());
                 int routesPerShift = (int) Math.ceil(Double.parseDouble(sectionCount.get(location)) / (double) shifts.size());
                 int sectionRoutesSet = 0;
                 int shiftsSet = 1;
-                int sectionMod = (int) Double.parseDouble(sectionCount.get(location)) % routesPerShift;
-                List<Route> routes = new ArrayList<>();
+                int sectionMod = (int) Double.parseDouble(sectionCount.get(location)) % (routesPerShift - 1);
                 List<Section> locationSections = sectionsByLocation.get(location);
                 Iterator<Section> sectionIterator = locationSections.iterator();
                 Section section = sectionIterator.next();
                 for (Shift shift: shifts) {
                     for (int i = 0; i < routesPerShift; i++) {
-                        if (sectionRoutesSet >= Integer.parseInt(section.getNbrRoutes())) {
+                        if (sectionRoutesSet >= Integer.parseInt(section.getNbrRoutes()) && sectionIterator.hasNext()) {
                             section = sectionIterator.next();
                             sectionRoutesSet = 0;
                         }
@@ -96,17 +99,16 @@ public class RoutePlanService {
                         route.setShiftId(shift.getId());
                         routes.add(route);
                         sectionRoutesSet++;
-
-                        if (shiftsSet == sectionMod) {
-                            routesPerShift--;
-                            shiftsSet++;
-                        } else {
-                            shiftsSet++;
-                        }
+                    }
+                    if (shiftsSet == sectionMod) {
+                        routesPerShift--;
+                        shiftsSet++;
+                    } else {
+                        shiftsSet++;
                     }
                 }
-                routePlan.setRoutes(routes);
             }
+            routePlan.setRoutes(routes);
 
 
             // Assign routes to Shift
