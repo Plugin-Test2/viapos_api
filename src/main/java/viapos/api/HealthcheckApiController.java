@@ -37,7 +37,7 @@ public class HealthcheckApiController implements HealthcheckApi {
         this.request = request;
     }
 
-    public ResponseEntity<Void> getHealthcheck(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept) {
+    public ResponseEntity<Void> getHealthcheck(@ApiParam(value = "Content Type" ,required=false, defaultValue = "application/json") @RequestHeader(value="Content-Type", required=false, defaultValue = "application/json") String contentType,@ApiParam(value = "Format to send back" ,required=false, defaultValue = "application/json") @RequestHeader(value="Accept", required=false, defaultValue = "application/json") String accept) {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 

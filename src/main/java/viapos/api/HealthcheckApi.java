@@ -32,9 +32,9 @@ public interface HealthcheckApi {
             @ApiResponse(code = 404, message = "Route not found"),
             @ApiResponse(code = 405, message = "Invalid input") })
     @RequestMapping(value = "/healthcheck",
-            produces = { "application/json" },
-            consumes = { "application/json" },
+            produces = { },
+            consumes = { },
             method = RequestMethod.GET)
-    ResponseEntity<Void> getHealthcheck(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept);
+    ResponseEntity<Void> getHealthcheck(@ApiParam(value = "Content Type" ,required=false, defaultValue = "application/json") @RequestHeader(value="Content-Type", required=false, defaultValue = "application/json") String contentType,@ApiParam(value = "Format to send back" ,required=false, defaultValue = "application/json") @RequestHeader(value="Accept", required=false, defaultValue = "application/json") String accept);
 
 }
