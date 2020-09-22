@@ -1,41 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="adding Event CRUD functionality">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/Swagger2SpringBoot$ExitException.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/Swagger2SpringBoot$ExitException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/Swagger2SpringBoot.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/Swagger2SpringBoot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/api/DistributionsApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/api/DistributionsApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/api/DistributionsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/api/DistributionsApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/api/EmployeesApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/api/EmployeesApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/api/EmployeesApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/api/EmployeesApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/api/SectionsApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/api/SectionsApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/api/SectionsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/api/SectionsApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/api/ShiftsApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/api/ShiftsApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/api/ShiftsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/api/ShiftsApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/dao/RouteDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/dao/RouteDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/dao/ShiftDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/dao/ShiftDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Location.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/model/RoutePlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/model/RoutePlan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Section.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Section.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Shift.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Shift.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/DistributionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/DistributionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/EmployeeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RoutePlanService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RoutePlanService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RouteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RouteService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/SectionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/SectionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/ShiftService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/ShiftService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viapos/api/UsersApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viapos/api/UsersApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viapos/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viapos/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,13 +63,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586115444971</updated>
-    </task>
-    <task id="LOCAL-00037" summary="fixing build">
-      <created>1598299530219</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1598299530219</updated>
     </task>
     <task id="LOCAL-00038" summary="fixing build">
       <created>1598299885990</created>
@@ -439,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600645969330</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="adding Event CRUD functionality">
+      <created>1600646281882</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1600646281883</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -495,20 +463,20 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2138" y="312" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500079393" />
-    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1600645969186">
+    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1600646281484">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600645969186" />
+    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600646281484" />
     <state x="454" y="105" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1600566546576" />
     <state x="2045" y="142" key="CommitChangelistDialog2/0.23.1440.877/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600625738471" />
     <state x="1888" y="121" key="SettingsEditor" timestamp="1598293147878">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="1888" y="121" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598293147878" />
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1600645970514">
+    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1600646286432">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600645970514" />
+    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600646286432" />
     <state x="420" y="233" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1600566550383" />
     <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600625740423" />
     <state x="2183" y="325" key="chooseDestDirectoryDialog" timestamp="1597521651917">
