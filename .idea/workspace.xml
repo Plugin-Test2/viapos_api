@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viapos/api/HealthcheckApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/viapos/api/HealthcheckApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,13 +64,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586115444971</updated>
-    </task>
-    <task id="LOCAL-00038" summary="fixing build">
-      <created>1598299885990</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1598299885990</updated>
     </task>
     <task id="LOCAL-00039" summary="fixing build">
       <created>1598300451425</created>
@@ -407,11 +401,17 @@
       <option name="project" value="LOCAL" />
       <updated>1600646281883</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="setting up new cluster">
+      <created>1600789765985</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1600789765986</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding github actions flow" />
     <MESSAGE value="updating Docker build" />
     <MESSAGE value="updating task definition" />
     <MESSAGE value="adding location UUID generation" />
@@ -436,7 +436,8 @@
     <MESSAGE value="adding functionality to retrieve shifts by ID" />
     <MESSAGE value="adding login functionality" />
     <MESSAGE value="adding Event CRUD functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding Event CRUD functionality" />
+    <MESSAGE value="setting up new cluster" />
+    <option name="LAST_COMMIT_MESSAGE" value="setting up new cluster" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2132" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597499253474">
@@ -463,20 +464,20 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2138" y="312" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500079393" />
-    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1600646281484">
+    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1600789765847">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600646281484" />
+    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600789765847" />
     <state x="454" y="105" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1600566546576" />
     <state x="2045" y="142" key="CommitChangelistDialog2/0.23.1440.877/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600625738471" />
     <state x="1888" y="121" key="SettingsEditor" timestamp="1598293147878">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="1888" y="121" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598293147878" />
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1600646286432">
+    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1600789767409">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600646286432" />
+    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600789767409" />
     <state x="420" y="233" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1600566550383" />
     <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600625740423" />
     <state x="2183" y="325" key="chooseDestDirectoryDialog" timestamp="1597521651917">
