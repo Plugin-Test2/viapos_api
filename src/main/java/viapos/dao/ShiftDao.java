@@ -99,11 +99,23 @@ public class ShiftDao extends BaseDao {
             MongoCollection<Shift> shiftCollection = db.getCollection(collectionName, Shift.class);
 
             BasicDBObject query = new BasicDBObject();
-            DBObject clause1 = new BasicDBObject("start", new BasicDBObject("$lte", end));
-            DBObject clause2 = new BasicDBObject("end", new BasicDBObject("$gte", start));
+            BasicDBList startQuery = new BasicDBList();
+            DBObject startClause1 = new BasicDBObject("start", new BasicDBObject("$lte", end));
+            DBObject startClause2 = new BasicDBObject("start", new BasicDBObject("$gte", start));
+            startQuery.add(startClause1);
+            startQuery.add(startClause2);
+            BasicDBObject startAndQuery = new BasicDBObject("$and", startQuery);
+
+            BasicDBList endQuery = new BasicDBList();
+            DBObject endClause1 = new BasicDBObject("end", new BasicDBObject("$lte", end));
+            DBObject endClause2 = new BasicDBObject("end", new BasicDBObject("$gte", start));
+            endQuery.add(endClause1);
+            endQuery.add(endClause2);
+            BasicDBObject endAndQuery = new BasicDBObject("$and", endQuery);
+
             BasicDBList or = new BasicDBList();
-            or.add(clause1);
-            or.add(clause2);
+            or.add(startAndQuery);
+            or.add(endAndQuery);
             query = new BasicDBObject("$or", or);
 
             BasicDBObject inQuery = new BasicDBObject();
