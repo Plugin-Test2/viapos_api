@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
-public class DistributionService {
+public class DistributionService extends BaseService {
 
     @Autowired
     DistributionDao distributionDao;

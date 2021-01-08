@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
-public class RoutePlanService {
+public class RoutePlanService extends BaseService {
 
     @Autowired
     RoutePlanDao routePlanDao;

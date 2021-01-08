@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
-public class ShiftService {
+public class ShiftService extends BaseService {
 
     @Autowired
     ShiftDao shiftDao;

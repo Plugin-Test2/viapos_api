@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
-public class EventService {
+public class EventService extends BaseService {
 
     @Autowired
     EventDao eventDao;

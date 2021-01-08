@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
-public class EmployeeService {
+public class EmployeeService extends BaseService {
 
     @Autowired
     EmployeeDao employeeDao;

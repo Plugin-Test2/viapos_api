@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
-public class LocationsService {
+public class LocationsService extends BaseService {
 
     @Autowired
     LocationsDao locationsDao;

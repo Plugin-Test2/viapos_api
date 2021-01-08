@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
-public class RouteService {
+public class RouteService extends BaseService {
 
     @Autowired
     RouteDao routeDao;

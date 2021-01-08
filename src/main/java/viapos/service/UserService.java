@@ -6,7 +6,7 @@ import viapos.dao.UserDao;
 import viapos.model.User;
 
 @Component
-public class UserService {
+public class UserService extends BaseService {
     @Autowired
     UserDao userDao;
 

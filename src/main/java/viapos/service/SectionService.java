@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
-public class SectionService {
+public class SectionService extends BaseService {
 
     @Autowired
     SectionDao sectionDao;
