@@ -34,18 +34,26 @@ public class PaymentPlan   {
   @JsonProperty("currency")
   private String currency = null;
 
-  @JsonProperty("limit")
-  private String limit = null;
-
-  @JsonProperty("frozen")
-  private Boolean frozen = null;
+  @JsonProperty("status")
+  private String status = null;
 
   @JsonProperty("completed")
   private Boolean completed = null;
 
+  @JsonProperty("name")
+  private String name = null;
+
   public PaymentPlan id(String id) {
     this.id = id;
     return this;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -53,6 +61,7 @@ public class PaymentPlan   {
    * @return id
   **/
   @ApiModelProperty(value = "")
+
 
 
   public String getId() {
@@ -143,8 +152,8 @@ public class PaymentPlan   {
     this.currency = currency;
   }
 
-  public PaymentPlan limit(String limit) {
-    this.limit = limit;
+  public PaymentPlan status(String status) {
+    this.status = status;
     return this;
   }
 
@@ -155,18 +164,14 @@ public class PaymentPlan   {
   @ApiModelProperty(value = "")
 
 
-  public String getLimit() {
-    return limit;
+  public String getStatus() {
+    return status;
   }
 
-  public void setLimit(String limit) {
-    this.limit = limit;
+  public void setStatus(String status) {
+    this.status = status;
   }
 
-  public PaymentPlan frozen(Boolean frozen) {
-    this.frozen = frozen;
-    return this;
-  }
 
   /**
    * Get frozen
@@ -174,14 +179,6 @@ public class PaymentPlan   {
   **/
   @ApiModelProperty(value = "")
 
-
-  public Boolean isFrozen() {
-    return frozen;
-  }
-
-  public void setFrozen(Boolean frozen) {
-    this.frozen = frozen;
-  }
 
   public PaymentPlan completed(Boolean completed) {
     this.completed = completed;
@@ -218,14 +215,13 @@ public class PaymentPlan   {
         Objects.equals(this.startDate, paymentPlan.startDate) &&
         Objects.equals(this.amount, paymentPlan.amount) &&
         Objects.equals(this.currency, paymentPlan.currency) &&
-        Objects.equals(this.limit, paymentPlan.limit) &&
-        Objects.equals(this.frozen, paymentPlan.frozen) &&
+        Objects.equals(this.status, paymentPlan.status) &&
         Objects.equals(this.completed, paymentPlan.completed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, occurrence, startDate, amount, currency, limit, frozen, completed);
+    return Objects.hash(id, occurrence, startDate, amount, currency, status, completed);
   }
 
   @Override
@@ -238,8 +234,7 @@ public class PaymentPlan   {
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
-    sb.append("    frozen: ").append(toIndentedString(frozen)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(status)).append("\n");
     sb.append("    completed: ").append(toIndentedString(completed)).append("\n");
     sb.append("}");
     return sb.toString();
