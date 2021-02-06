@@ -10,23 +10,23 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * Contact
+ * Customer
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2021-01-06T23:36:52.493Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2021-02-06T19:56:12.793Z")
 
 
 
 
-public class Contact   {
+public class Customer   {
   @JsonProperty("firstName")
   private String firstName = null;
 
   @JsonProperty("lastName")
   private String lastName = null;
 
-  @JsonProperty("customerId")
-  private String customerId = null;
+  @JsonProperty("id")
+  private String id = null;
 
   @JsonProperty("emailAddress")
   private String emailAddress = null;
@@ -37,7 +37,7 @@ public class Contact   {
   @JsonProperty("contactMethod")
   private String contactMethod = null;
 
-  public Contact firstName(String firstName) {
+  public Customer firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -57,7 +57,7 @@ public class Contact   {
     this.firstName = firstName;
   }
 
-  public Contact lastName(String lastName) {
+  public Customer lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -77,27 +77,27 @@ public class Contact   {
     this.lastName = lastName;
   }
 
-  public Contact customerId(String customerId) {
-    this.customerId = customerId;
+  public Customer id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Get customerId
-   * @return customerId
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
 
 
-  public String getCustomerId() {
-    return customerId;
+  public String getId() {
+    return id;
   }
 
-  public void setCustomerId(String customerId) {
-    this.customerId = customerId;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public Contact emailAddress(String emailAddress) {
+  public Customer emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
@@ -117,7 +117,7 @@ public class Contact   {
     this.emailAddress = emailAddress;
   }
 
-  public Contact phoneNumber(String phoneNumber) {
+  public Customer phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -137,7 +137,7 @@ public class Contact   {
     this.phoneNumber = phoneNumber;
   }
 
-  public Contact contactMethod(String contactMethod) {
+  public Customer contactMethod(String contactMethod) {
     this.contactMethod = contactMethod;
     return this;
   }
@@ -166,28 +166,28 @@ public class Contact   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Contact contact = (Contact) o;
-    return Objects.equals(this.firstName, contact.firstName) &&
-        Objects.equals(this.lastName, contact.lastName) &&
-        Objects.equals(this.customerId, contact.customerId) &&
-        Objects.equals(this.emailAddress, contact.emailAddress) &&
-        Objects.equals(this.phoneNumber, contact.phoneNumber) &&
-        Objects.equals(this.contactMethod, contact.contactMethod);
+    Customer customer = (Customer) o;
+    return Objects.equals(this.firstName, customer.firstName) &&
+        Objects.equals(this.lastName, customer.lastName) &&
+        Objects.equals(this.id, customer.id) &&
+        Objects.equals(this.emailAddress, customer.emailAddress) &&
+        Objects.equals(this.phoneNumber, customer.phoneNumber) &&
+        Objects.equals(this.contactMethod, customer.contactMethod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, customerId, emailAddress, phoneNumber, contactMethod);
+    return Objects.hash(firstName, lastName, id, emailAddress, phoneNumber, contactMethod);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Contact {\n");
+    sb.append("class Customer {\n");
     
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    contactMethod: ").append(toIndentedString(contactMethod)).append("\n");

@@ -51,8 +51,8 @@ public class EmployeesApiController implements EmployeesApi {
     }
 
     public ResponseEntity<Void> deleteEmployees(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Employees objects to be deleted" ,required=true )  @Valid @RequestBody List<Employee> employee) {
-        boolean creation = employeeService.deleteEmployees(employee);
-        if (creation) {
+        boolean deletion = employeeService.deleteEmployees(employee);
+        if (deletion) {
             return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
             return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);

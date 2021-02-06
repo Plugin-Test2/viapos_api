@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * Subscription
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2021-01-06T23:36:52.493Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2021-02-06T19:56:12.793Z")
 
 
 
@@ -29,7 +29,7 @@ public class Subscription   {
   private PaymentPlan paymentPlan = null;
 
   @JsonProperty("contact")
-  private Contact contact = null;
+  private Customer contact = null;
 
   public Subscription id(String id) {
     this.id = id;
@@ -93,7 +93,7 @@ public class Subscription   {
     this.paymentPlan = paymentPlan;
   }
 
-  public Subscription contact(Contact contact) {
+  public Subscription contact(Customer contact) {
     this.contact = contact;
     return this;
   }
@@ -106,11 +106,11 @@ public class Subscription   {
 
   @Valid
 
-  public Contact getContact() {
+  public Customer getContact() {
     return contact;
   }
 
-  public void setContact(Contact contact) {
+  public void setContact(Customer contact) {
     this.contact = contact;
   }
 
