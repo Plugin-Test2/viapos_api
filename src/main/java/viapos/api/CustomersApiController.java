@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import viapos.model.Customer;
+import viapos.model.PaymentMethod;
 import viapos.service.CustomerService;
 
 import javax.validation.constraints.*;
@@ -87,6 +88,15 @@ public class CustomersApiController implements CustomersApi {
             return new ResponseEntity<Void>(HttpStatus.OK);
         } else {
             return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public ResponseEntity<List<PaymentMethod>> getCustomerPaymentMethods(@ApiParam(value = "ID of Customer to return",required=true) @PathVariable("customerId") String customerId, @ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType, @ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept) {
+        List<PaymentMethod> paymentMethods = customerService.getCustomersPaymentMethods(customerId);
+        if (paymentMethods != null && !paymentMethods.isEmpty()) {
+            return new ResponseEntity<List<PaymentMethod>>(paymentMethods, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<PaymentMethod>>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

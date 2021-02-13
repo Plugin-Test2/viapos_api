@@ -23,6 +23,9 @@ public class PaymentMethod   {
   @JsonProperty("id")
   private String id = null;
 
+  @JsonProperty("customerId")
+  private String customerId = null;
+
   @JsonProperty("token")
   private String token = null;
 
@@ -159,6 +162,13 @@ public class PaymentMethod   {
     this.billingAddress = billingAddress;
   }
 
+  public String getCustomerId() {
+    return customerId;
+  }
+
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {

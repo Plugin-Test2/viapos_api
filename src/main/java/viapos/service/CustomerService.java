@@ -17,9 +17,6 @@ import java.util.UUID;
 @Component
 public class CustomerService extends BaseService {
 
-    @Autowired
-    CustomerDao customerDao;
-
     public boolean updateCustomers(List<Customer> customers) {
         for (Customer customer : customers) {
             customerDao.updateCustomer(customer);
@@ -44,5 +41,9 @@ public class CustomerService extends BaseService {
             customerDao.deleteCustomer(customer);
         }
         return true;
+    }
+
+    public List<PaymentMethod> getCustomersPaymentMethods(String customerId) {
+        return paymentMethodDao.getCustomersPaymentMethods(customerId);
     }
 }

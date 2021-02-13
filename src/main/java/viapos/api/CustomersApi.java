@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import viapos.model.Customer;
+import viapos.model.PaymentMethod;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -88,5 +89,17 @@ public interface CustomersApi {
         consumes = { "application/json" },
         method = RequestMethod.PUT)
     ResponseEntity<Void> updateCustomers(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Customer objects to be updated" ,required=true )  @Valid @RequestBody List<Customer> customers);
+
+
+    @ApiOperation(value = "Retrieve payment methods for a customer", nickname = "getCustomerPaymentMethods", notes = "", response = PaymentMethod.class, responseContainer = "List", tags={ "Customer", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = PaymentMethod.class, responseContainer = "List"),
+            @ApiResponse(code = 404, message = "Customer not found"),
+            @ApiResponse(code = 405, message = "Invalid input") })
+    @RequestMapping(value = "/customers/{customerId}/paymentMethods",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.GET)
+    ResponseEntity<List<PaymentMethod>> getCustomerPaymentMethods(@ApiParam(value = "ID of Customer to return",required=true) @PathVariable("customerId") String customerId, @ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType, @ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept);
 
 }
