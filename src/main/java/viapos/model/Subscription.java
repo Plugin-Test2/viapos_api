@@ -31,6 +31,18 @@ public class Subscription   {
   @JsonProperty("contact")
   private Customer contact = null;
 
+  @JsonProperty("status")
+  private String status = null;
+
+  @JsonProperty("completed")
+  private Boolean completed = null;
+
+  @JsonProperty("startDate")
+  private String startDate = null;
+
+  @JsonProperty("endDate")
+  private String endDate = null;
+
   public Subscription id(String id) {
     this.id = id;
     return this;
@@ -54,6 +66,38 @@ public class Subscription   {
   public Subscription paymentMethod(PaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public Boolean getCompleted() {
+    return completed;
+  }
+
+  public void setCompleted(Boolean completed) {
+    this.completed = completed;
+  }
+
+  public String getStartDate() {
+    return startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
   }
 
   /**

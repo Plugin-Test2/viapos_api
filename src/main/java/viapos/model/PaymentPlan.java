@@ -25,20 +25,11 @@ public class PaymentPlan   {
   @JsonProperty("occurrence")
   private String occurrence = null;
 
-  @JsonProperty("startDate")
-  private String startDate = null;
-
   @JsonProperty("amount")
   private String amount = null;
 
   @JsonProperty("currency")
   private String currency = null;
-
-  @JsonProperty("status")
-  private String status = null;
-
-  @JsonProperty("completed")
-  private Boolean completed = null;
 
   @JsonProperty("name")
   private String name = null;
@@ -92,26 +83,6 @@ public class PaymentPlan   {
     this.occurrence = occurrence;
   }
 
-  public PaymentPlan startDate(String startDate) {
-    this.startDate = startDate;
-    return this;
-  }
-
-  /**
-   * Get startDate
-   * @return startDate
-  **/
-  @ApiModelProperty(value = "")
-
-
-  public String getStartDate() {
-    return startDate;
-  }
-
-  public void setStartDate(String startDate) {
-    this.startDate = startDate;
-  }
-
   public PaymentPlan amount(String amount) {
     this.amount = amount;
     return this;
@@ -152,54 +123,6 @@ public class PaymentPlan   {
     this.currency = currency;
   }
 
-  public PaymentPlan status(String status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Get limit
-   * @return limit
-  **/
-  @ApiModelProperty(value = "")
-
-
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-
-  /**
-   * Get frozen
-   * @return frozen
-  **/
-  @ApiModelProperty(value = "")
-
-
-  public PaymentPlan completed(Boolean completed) {
-    this.completed = completed;
-    return this;
-  }
-
-  /**
-   * Get completed
-   * @return completed
-  **/
-  @ApiModelProperty(value = "")
-
-
-  public Boolean isCompleted() {
-    return completed;
-  }
-
-  public void setCompleted(Boolean completed) {
-    this.completed = completed;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -212,16 +135,13 @@ public class PaymentPlan   {
     PaymentPlan paymentPlan = (PaymentPlan) o;
     return Objects.equals(this.id, paymentPlan.id) &&
         Objects.equals(this.occurrence, paymentPlan.occurrence) &&
-        Objects.equals(this.startDate, paymentPlan.startDate) &&
         Objects.equals(this.amount, paymentPlan.amount) &&
-        Objects.equals(this.currency, paymentPlan.currency) &&
-        Objects.equals(this.status, paymentPlan.status) &&
-        Objects.equals(this.completed, paymentPlan.completed);
+        Objects.equals(this.currency, paymentPlan.currency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, occurrence, startDate, amount, currency, status, completed);
+    return Objects.hash(id, occurrence, amount, currency);
   }
 
   @Override
@@ -231,11 +151,8 @@ public class PaymentPlan   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    occurrence: ").append(toIndentedString(occurrence)).append("\n");
-    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    limit: ").append(toIndentedString(status)).append("\n");
-    sb.append("    completed: ").append(toIndentedString(completed)).append("\n");
     sb.append("}");
     return sb.toString();
   }
