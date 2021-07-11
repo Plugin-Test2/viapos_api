@@ -34,6 +34,9 @@ public class PaymentPlan   {
   @JsonProperty("name")
   private String name = null;
 
+  @JsonProperty("dayOfBilling")
+  private String dayOfBilling = null;
+
   public PaymentPlan id(String id) {
     this.id = id;
     return this;
@@ -66,6 +69,14 @@ public class PaymentPlan   {
   public PaymentPlan occurrence(String occurrence) {
     this.occurrence = occurrence;
     return this;
+  }
+
+  public String getDayOfBilling() {
+    return dayOfBilling;
+  }
+
+  public void setDayOfBilling(String dayOfBilling) {
+    this.dayOfBilling = dayOfBilling;
   }
 
   /**
