@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import viapos.model.Subscription;
+import viapos.model.SubscriptionTriggerRequest;
 import viapos.service.SubscriptionService;
 
 import javax.validation.constraints.*;
@@ -75,6 +76,11 @@ public class SubscriptionsApiController implements SubscriptionsApi {
         } else {
             return new ResponseEntity<List<Subscription>>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public ResponseEntity<Void> triggerSubscriptions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Which Subscriptions to be triggered" ,required=true )  @Valid @RequestBody SubscriptionTriggerRequest subscriptionTriggerRequest) {
+        subscriptionService.triggerSubscriptions(subscriptionTriggerRequest);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     public ResponseEntity<Void> updateSubscriptions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Subscription objects to be updated" ,required=true )  @Valid @RequestBody List<Subscription> subscriptions) {

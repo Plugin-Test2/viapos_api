@@ -1,9 +1,13 @@
 package viapos.dao;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.client.*;
+import jdk.vm.ci.meta.Local;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import viapos.helper.SubscriptionHelper;
 import viapos.model.Distribution;
 import viapos.model.Location;
 import com.mongodb.ConnectionString;
@@ -15,8 +19,11 @@ import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import viapos.model.Subscription;
+import viapos.model.SubscriptionTriggerRequest;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
 import static java.util.Collections.singletonList;
@@ -101,5 +108,29 @@ public class SubscriptionDao extends BaseDao {
             subscriptionCollection.deleteOne(subscriptionId);
         }
         return true;
+    }
+
+    public List<Subscription> getDueSubscriptions(SubscriptionTriggerRequest subscriptionTriggerRequest) {
+        ArrayList<Subscription> subscriptions = new ArrayList<>();
+        try (MongoClient mongoClient = MongoClients.create(clientSettings)) {
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+            MongoCollection<Subscription> subscriptionCollection = db.getCollection(collectionName, Subscription.class);
+
+            BasicDBObject query = new BasicDBObject();
+            LocalDate todaysDate = LocalDate.now();
+            String dueDateString = SubscriptionHelper.getDueDate(todaysDate, subscriptionTriggerRequest.getOccurence()).toString();
+            query.put("lastPaymentDate", new BasicDBObject("$lte", dueDateString));
+            query.put("occurrence", subscriptionTriggerRequest.getOccurence());
+
+            MongoCursor<Subscription> cursor = subscriptionCollection.find(query).iterator();
+            try {
+                while (cursor.hasNext()) {
+                    subscriptions.add(cursor.next());
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        return subscriptions;
     }
 }

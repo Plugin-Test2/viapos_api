@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import viapos.model.Subscription;
+import viapos.model.SubscriptionTriggerRequest;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -76,6 +77,16 @@ public interface SubscriptionsApi {
         method = RequestMethod.GET)
     ResponseEntity<List<Subscription>> getSubscriptions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept);
 
+    @ApiOperation(value = "Trigger for all of the subscriptions that need to be processed.", nickname = "triggerSubscriptions", notes = "", tags={ "Subscription", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 404, message = "Subscription not found"),
+            @ApiResponse(code = 405, message = "Invalid input") })
+    @RequestMapping(value = "/subscriptions/trigger",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.POST)
+    ResponseEntity<Void> triggerSubscriptions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Which Subscriptions to be triggered" ,required=true )  @Valid @RequestBody SubscriptionTriggerRequest subscriptionTriggerRequest);
 
     @ApiOperation(value = "Update existing subscriptions", nickname = "updateSubscriptions", notes = "", tags={ "Subscription", })
     @ApiResponses(value = { 

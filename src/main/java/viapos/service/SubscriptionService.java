@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import viapos.dao.LocationsDao;
 import viapos.dao.SubscriptionDao;
+import viapos.helper.SubscriptionHelper;
 import viapos.model.Location;
 import viapos.model.Subscription;
+import viapos.model.SubscriptionTriggerRequest;
+import viapos.model.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,5 +53,13 @@ public class SubscriptionService extends BaseService {
             subscriptionDao.deleteSubscription(subscription);
         }
         return true;
+    }
+
+    public void triggerSubscriptions(SubscriptionTriggerRequest subscriptionTriggerRequest) {
+        List<Subscription> subscriptions = subscriptionDao.getDueSubscriptions(subscriptionTriggerRequest);
+        for (Subscription subscription: subscriptions) {
+            Transaction transaction = SubscriptionHelper.convertToTransaction(subscription);
+            cardConnectService.authorizeTransaction(transaction, subscription.getMerchantId());
+        }
     }
 }

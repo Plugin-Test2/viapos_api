@@ -46,6 +46,9 @@ public class Subscription   {
   @JsonProperty("lastPaymentDate")
   private String lastPaymentDate = null;
 
+  @JsonProperty("merchantId")
+  private String merchantId = null;
+
   public Subscription id(String id) {
     this.id = id;
     return this;
@@ -109,6 +112,14 @@ public class Subscription   {
 
   public void setEndDate(String endDate) {
     this.endDate = endDate;
+  }
+
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
   }
 
   /**
