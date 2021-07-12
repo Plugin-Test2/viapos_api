@@ -40,16 +40,78 @@ public interface TransactionsApi {
             method = RequestMethod.POST)
     ResponseEntity<List<Transaction>> authorizeTransactions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Merchant Id to Process Under" ,required=true) @RequestHeader(value="merchantId", required=true) String merchantId,@ApiParam(value = "The preferred payment processor to send the transaction to." ,required=true) @RequestHeader(value="paymentProcessor", required=true) String paymentProcessor,@ApiParam(value = "Transaction objects to be authorized" ,required=true )  @Valid @RequestBody List<Transaction> transactions);
 
+    @ApiOperation(value = "Create a Transaction", nickname = "createTransaction", notes = "", tags={ "Transaction", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Transactions created"),
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "Transaction not found"),
+            @ApiResponse(code = 405, message = "Validation exception") })
+    @RequestMapping(value = "/transactions",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.POST)
+    ResponseEntity<Void> createTransaction(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Transaction objects to be created" ,required=true )  @Valid @RequestBody List<Transaction> transactions);
+
+
+    @ApiOperation(value = "Delete an existing Transaction", nickname = "deleteTransaction", notes = "", tags={ "Transaction", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "Transaction not found"),
+            @ApiResponse(code = 405, message = "Validation exception") })
+    @RequestMapping(value = "/transactions",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.DELETE)
+    ResponseEntity<Void> deleteTransaction(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Transaction objects to be deleted" ,required=true )  @Valid @RequestBody List<Transaction> transactions);
+
+
+    @ApiOperation(value = "Retrieve a single Transaction.", nickname = "getTransaction", notes = "", response = Transaction.class, tags={ "Transaction", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = Transaction.class),
+            @ApiResponse(code = 404, message = "Section not found"),
+            @ApiResponse(code = 405, message = "Invalid input") })
+    @RequestMapping(value = "/transactions/{transactionId}",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.GET)
+    ResponseEntity<Transaction> getTransaction(@ApiParam(value = "ID of Transaction to return",required=true) @PathVariable("transactionId") String transactionId,@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept);
+
+
+    @ApiOperation(value = "Retrieve all transactions.", nickname = "getTransactions", notes = "", response = Transaction.class, responseContainer = "List", tags={ "Transaction", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = Transaction.class, responseContainer = "List"),
+            @ApiResponse(code = 405, message = "Invalid input") })
+    @RequestMapping(value = "/transactions",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.GET)
+    ResponseEntity<List<Transaction>> getTransactions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept);
+
+
     @ApiOperation(value = "Refunds a transaction", nickname = "refundTransactions", notes = "", response = Transaction.class, responseContainer = "List", tags={ "Payment Flows", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Transactions refunded", response = Transaction.class, responseContainer = "List"),
-        @ApiResponse(code = 400, message = "Invalid ID supplied"),
-        @ApiResponse(code = 404, message = "Transactions not found"),
-        @ApiResponse(code = 405, message = "Validation exception") })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Transactions refunded", response = Transaction.class, responseContainer = "List"),
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "Transactions not found"),
+            @ApiResponse(code = 405, message = "Validation exception") })
     @RequestMapping(value = "/transactions/refund",
-        produces = { "application/json" }, 
-        consumes = { "application/json" },
-        method = RequestMethod.POST)
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.POST)
     ResponseEntity<List<Transaction>> refundTransactions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Transaction objects to be refunded" ,required=true )  @Valid @RequestBody List<Transaction> transactions);
+
+
+    @ApiOperation(value = "Update an existing Transaction", nickname = "updateTransaction", notes = "", tags={ "Transaction", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "Transaction not found"),
+            @ApiResponse(code = 405, message = "Validation exception") })
+    @RequestMapping(value = "/transactions",
+            produces = { "application/json" },
+            consumes = { "application/json" },
+            method = RequestMethod.PUT)
+    ResponseEntity<Void> updateTransaction(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Transaction objects to be updated" ,required=true )  @Valid @RequestBody List<Transaction> transactions);
 
 }

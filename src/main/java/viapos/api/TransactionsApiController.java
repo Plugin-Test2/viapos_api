@@ -51,9 +51,55 @@ public class TransactionsApiController implements TransactionsApi {
         }
     }
 
+    public ResponseEntity<Void> createTransaction(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Transaction objects to be created" ,required=true )  @Valid @RequestBody List<Transaction> transactions) {
+        Boolean creation = transactionService.createTransactions(transactions);
+        if (creation) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public ResponseEntity<Void> deleteTransaction(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Transaction objects to be deleted" ,required=true )  @Valid @RequestBody List<Transaction> transactions) {
+        Boolean deletion = transactionService.createTransactions(transactions);
+        if (deletion) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public ResponseEntity<Transaction> getTransaction(@ApiParam(value = "ID of Transaction to return",required=true) @PathVariable("transactionId") String transactionId,@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept) {
+        Transaction transaction = transactionService.getTransaction(transactionId);
+        if (transaction != null) {
+            return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Transaction>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public ResponseEntity<List<Transaction>> getTransactions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept) {
+        List<Transaction> transactions = transactionService.getTransactions();
+        if (transactions != null) {
+            return new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<Transaction>>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     public ResponseEntity<List<Transaction>> refundTransactions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Transaction objects to be refunded" ,required=true )  @Valid @RequestBody List<Transaction> transactions) {
 
         return new ResponseEntity<List<Transaction>>(HttpStatus.NOT_IMPLEMENTED);
     }
+
+    public ResponseEntity<Void> updateTransaction(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Transaction objects to be updated" ,required=true )  @Valid @RequestBody List<Transaction> transactions) {
+        Boolean update = transactionService.updateTransactions(transactions);
+        if (update) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
 }

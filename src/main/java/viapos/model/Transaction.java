@@ -13,14 +13,15 @@ import javax.validation.constraints.*;
  * Transaction
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2020-12-19T22:17:04.302Z")
-
-
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2021-07-12T19:06:23.961Z")
 
 
 public class Transaction   {
   @JsonProperty("id")
   private String id = null;
+
+  @JsonProperty("merchantId")
+  private String merchantId = null;
 
   @JsonProperty("paymentMethod")
   private PaymentMethod paymentMethod = null;
@@ -42,7 +43,7 @@ public class Transaction   {
   /**
    * Get id
    * @return id
-  **/
+   **/
   @ApiModelProperty(value = "")
 
 
@@ -54,6 +55,26 @@ public class Transaction   {
     this.id = id;
   }
 
+  public Transaction merchantId(String merchantId) {
+    this.merchantId = merchantId;
+    return this;
+  }
+
+  /**
+   * Get merchantId
+   * @return merchantId
+   **/
+  @ApiModelProperty(value = "")
+
+
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
+  }
+
   public Transaction paymentMethod(PaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
@@ -62,7 +83,7 @@ public class Transaction   {
   /**
    * Get paymentMethod
    * @return paymentMethod
-  **/
+   **/
   @ApiModelProperty(value = "")
 
   @Valid
@@ -83,7 +104,7 @@ public class Transaction   {
   /**
    * Get amount
    * @return amount
-  **/
+   **/
   @ApiModelProperty(value = "")
 
 
@@ -103,7 +124,7 @@ public class Transaction   {
   /**
    * Get currency
    * @return currency
-  **/
+   **/
   @ApiModelProperty(value = "")
 
 
@@ -123,7 +144,7 @@ public class Transaction   {
   /**
    * Get authorization
    * @return authorization
-  **/
+   **/
   @ApiModelProperty(value = "")
 
   @Valid
@@ -147,23 +168,25 @@ public class Transaction   {
     }
     Transaction transaction = (Transaction) o;
     return Objects.equals(this.id, transaction.id) &&
-        Objects.equals(this.paymentMethod, transaction.paymentMethod) &&
-        Objects.equals(this.amount, transaction.amount) &&
-        Objects.equals(this.currency, transaction.currency) &&
-        Objects.equals(this.authorization, transaction.authorization);
+            Objects.equals(this.merchantId, transaction.merchantId) &&
+            Objects.equals(this.paymentMethod, transaction.paymentMethod) &&
+            Objects.equals(this.amount, transaction.amount) &&
+            Objects.equals(this.currency, transaction.currency) &&
+            Objects.equals(this.authorization, transaction.authorization);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, paymentMethod, amount, currency, authorization);
+    return Objects.hash(id, merchantId, paymentMethod, amount, currency, authorization);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Transaction {\n");
-    
+
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
