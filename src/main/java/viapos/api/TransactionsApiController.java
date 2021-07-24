@@ -45,6 +45,7 @@ public class TransactionsApiController implements TransactionsApi {
     public ResponseEntity<List<Transaction>> authorizeTransactions(@ApiParam(value = "Content Type" ,required=true) @RequestHeader(value="Content-Type", required=true) String contentType,@ApiParam(value = "Format to send back" ,required=true) @RequestHeader(value="Accept", required=true) String accept,@ApiParam(value = "Merchant Id to Process Under" ,required=true) @RequestHeader(value="merchantId", required=true) String merchantId,@ApiParam(value = "The preferred payment processor to send the transaction to." ,required=true) @RequestHeader(value="paymentProcessor", required=true) String paymentProcessor,@ApiParam(value = "Transaction objects to be authorized" ,required=true )  @Valid @RequestBody List<Transaction> transactions) {
         List<Transaction> transactionResults = transactionService.authorizeTransactions(transactions, paymentProcessor, merchantId);
         if (transactionResults != null) {
+            transactionService.createTransactions(transactionResults);
             return new ResponseEntity<List<Transaction>>(transactionResults, HttpStatus.OK);
         } else {
             return new ResponseEntity<List<Transaction>>(HttpStatus.INTERNAL_SERVER_ERROR);
