@@ -22,7 +22,7 @@ public class CardConnectService {
     private final RestTemplate restTemplate;
     private String url = "https://fts-uat.cardconnect.com/cardconnect/rest/auth";
     private String authorizationHeader = "Basic dGVzdGluZzp0ZXN0aW5nMTIz";
-    private String mid = "496160873888";
+    private String mid = "ç";
 
     public CardConnectService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
