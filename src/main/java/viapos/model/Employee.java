@@ -37,6 +37,9 @@ public class Employee   {
   @JsonProperty("availableWeeklyHours")
   private String availableWeeklyHours = null;
 
+  @JsonProperty("organizationId")
+  private String organizationId = null;
+
   public Employee id(String id) {
     this.id = id;
     return this;
@@ -80,6 +83,14 @@ public class Employee   {
   public Employee typeId(String typeId) {
     this.typeId = typeId;
     return this;
+  }
+
+  public String getOrganizationId() {
+    return organizationId;
+  }
+
+  public void setOrganizationId(String organizationId) {
+    this.organizationId = organizationId;
   }
 
   /**
