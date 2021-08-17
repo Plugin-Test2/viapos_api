@@ -40,6 +40,9 @@ public class Employee   {
   @JsonProperty("organizationId")
   private String organizationId = null;
 
+  @JsonProperty("email")
+  private String email = null;
+
   public Employee id(String id) {
     this.id = id;
     return this;
@@ -111,6 +114,14 @@ public class Employee   {
   public Employee availability(String availability) {
     this.availability = availability;
     return this;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   /**
