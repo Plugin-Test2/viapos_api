@@ -1,21 +1,18 @@
-buildscript {
-    repositories {
-        maven {
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id("com.jfrog.artifactory") version "5.+"
+}
+
+allprojects {
+    maven {
             url "https://soleng.jfrog.io/artifactory/dupe-maven-dev-remote"
             credentials {
                 username = "${artifactory_user}" 
                 password = "${artifactory_password}"
             }
         }
-        jcenter()
-    }
-}
-
-plugins {
-    id 'org.springframework.boot' version '2.2.2.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'java'
-    id("com.jfrog.artifactory") version "5.+"
 }
 
 apply plugin: "com.jfrog.artifactory"
