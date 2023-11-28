@@ -7,6 +7,7 @@ buildscript {
                 password = "${artifactory_password}"
             }
         }
+        jcenter()
     }
 }
 
