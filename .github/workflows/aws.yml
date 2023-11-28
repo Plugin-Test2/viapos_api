@@ -39,6 +39,7 @@ jobs:
       - run: |
           echo "artifactory_user=jimmyc" >> gradle.properties
           echo "artifactory_user=${{secrets.JF_ACCESS_TOKEN}}" >> gradle.properties
+          cat gradle.properties
       - uses: actions/setup-java@v1
         with:
           java-version: '9.0.4' # The JDK version to make available on the path.
