@@ -8,6 +8,13 @@ plugins {
 allprojects {
     repositories {
         mavenCentral()
+        maven {
+            url "https://soleng.jfrog.io/artifactory/dupe-maven-dev-remote"
+            credentials {
+                username = "${artifactory_user}" 
+                password = "${artifactory_password}"
+            }
+        }
     }
 }
 
