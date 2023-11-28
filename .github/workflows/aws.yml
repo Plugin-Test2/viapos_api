@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v1
       - run: |
           echo "artifactory_user=jimmyc" >> gradle.properties
-          echo "artifactory_user=${{secrets.JF_ACCESS_TOKEN}}" >> gradle.properties
+          echo "artifactory_password=${{secrets.JF_PASSWORD}}" >> gradle.properties
           cat gradle.properties
       - uses: actions/setup-java@v1
         with:
