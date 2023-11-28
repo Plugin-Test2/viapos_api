@@ -8,7 +8,16 @@ buildscript {
             }
         }
     }
-    dependencies {
+}
+
+plugins {
+    id 'com.jfrog.artifactory' version '5.+'
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compile group: 'org.threeten', name: 'threetenbp', version: '1.4.0'
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.10.1'
@@ -19,14 +28,6 @@ buildscript {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-}
-}
-
-plugins {
-    id 'com.jfrog.artifactory' version '5.+'
-    id 'org.springframework.boot' version '2.2.2.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'java'
 }
 
 group = 'viapos'
