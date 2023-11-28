@@ -33,8 +33,6 @@ name: Deploy to Amazon ECS
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: java
 
     steps:
       - uses: actions/checkout@v1
