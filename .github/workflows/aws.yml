@@ -72,6 +72,7 @@ jobs:
       run: |
         # Build a docker container and
         # push it to Artifactory
+        echo ${{ secrets.JF_PASSWORD }} | docker login -u ${{ vars.JF_USERNAME }} --password-stdin
         docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}:$IMAGE_TAG .
         docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}:$IMAGE_TAG
 
