@@ -73,8 +73,8 @@ jobs:
         # Build a docker container and
         # push it to Artifactory
         echo ${{ secrets.JF_PASSWORD }} | docker login ${{vars.JF_URL}} -u ${{ vars.JF_USERNAME }} --password-stdin
-        docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}:$IMAGE_TAG .
-        docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}:$IMAGE_TAG
+        docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG .
+        docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
