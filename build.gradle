@@ -37,6 +37,7 @@ sourceCompatibility = '1.8'
 artifactory {
     contextUrl = 'https://soleng.jfrog.io/artifactory'
     publish {
+        contextUrl = 'https://soleng.jfrog.io/artifactory'
         repository {
             repoKey = 'libs-snapshot-local' // The Artifactory repository key to publish to
             username = "${artifactory_user}" // The publisher user name
@@ -52,6 +53,8 @@ artifactory {
             //properties = ['qa.level': 'basic', 'dev.team' : 'core']
             // Publish generated POM files to Artifactory (true by default)
             //publishPom = true
+            publishBuildInfo = true
+            publishArtifacts = false
         }
     }
     clientConfig.setIncludeEnvVars(true)
