@@ -54,11 +54,11 @@ artifactory {
             // Publish generated POM files to Artifactory (true by default)
             //publishPom = true
             publishBuildInfo = true
-            publishArtifacts = false
+            publishArtifacts = true
         }
     }
     clientConfig.setIncludeEnvVars(true)
-    clientConfig.info.setBuildName('jimmmys-springboot-app')
+    clientConfig.info.setBuildName('jimmmys-springboot-apps')
     clientConfig.info.setBuildNumber('' + new java.util.Random(System.currentTimeMillis()).nextInt(20000))
 }
 
