@@ -39,7 +39,7 @@ artifactory {
     publish {
         contextUrl = 'https://soleng.jfrog.io/artifactory'
         repository {
-            repoKey = 'libs-snapshot-local' // The Artifactory repository key to publish to
+            repoKey = 'dupe-maven-dev-remote' // The Artifactory repository key to publish to
             username = "${artifactory_user}" // The publisher user name
             password = "${artifactory_password}" // The publisher password
         }
@@ -52,9 +52,9 @@ artifactory {
             // Properties to be attached to the published artifacts.
             //properties = ['qa.level': 'basic', 'dev.team' : 'core']
             // Publish generated POM files to Artifactory (true by default)
-            //publishPom = true
             publishBuildInfo = true
-            publishArtifacts = true
+            publishPom = true
+            //publishArtifacts = true
         }
     }
     clientConfig.setIncludeEnvVars(true)
