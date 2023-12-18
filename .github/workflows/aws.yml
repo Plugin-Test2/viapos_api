@@ -80,21 +80,6 @@ jobs:
         echo ${{ secrets.JF_PASSWORD }} | docker login ${{vars.JF_URL}} -u ${{ vars.JF_USERNAME }} --password-stdin
         docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG .
         docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG
-        jf rt bdc ${{vars.JF_DOCKER_REPO}} --image-file viapos_api:$IMAGE_TAG --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
+        jf rt bdc ${{vars.JF_DOCKER_REPO}} --image-file ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
         jf rt bp jimmmys-springboot-apps ${{ github.sha }}
 
-    - name: Fill in the new image ID in the Amazon ECS task definition
-      id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
-      with:
-        task-definition: ecs-task-definition.json
-        container-name: tomcat-webserver
-        image: ${{ steps.build-image.outputs.image }}
-
-    - name: Deploy Amazon ECS task definition
-      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-      with:
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: viapos
-        cluster: viapos-cluster
-        wait-for-service-stability: true
