@@ -79,11 +79,11 @@ jobs:
         # push it to Artifactory
         echo ${{ secrets.JF_PASSWORD }} | docker login ${{vars.JF_URL}} -u ${{ vars.JF_USERNAME }} --password-stdin
         docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG .
-        docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG
+        jf docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
         
         # sha=$(docker manifest inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.config.digest' | tr -d '"' )
         repoDigest=$(docker inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.[0].RepoDigests[0]' | tr -d '"' | awk -F"@" '{ print $2}')
         echo "Sha is $repoDigest"
-        jf rt bdc ${{vars.JF_DOCKER_REPO}} --image-file ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG"@$repoDigest" --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
+        # jf rt bdc ${{vars.JF_DOCKER_REPO}} --image-file ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG"@$repoDigest" --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
         jf rt bp jimmmys-springboot-apps ${{ github.sha }}
 
