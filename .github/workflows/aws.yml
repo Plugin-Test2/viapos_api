@@ -82,8 +82,8 @@ jobs:
         docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG
         
         # sha=$(docker manifest inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.config.digest' | tr -d '"' )
-        sha=$(docker inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG )
+        repoDigest=$(docker inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '[0].RepoDigests[0]' | tr -d '"')
         echo "Sha is $sha"
-        jf rt bdc ${{vars.JF_DOCKER_REPO}} --image-file ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG@$sha --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
+        jf rt bdc ${{vars.JF_DOCKER_REPO}} --image-file $repoDigest --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
         jf rt bp jimmmys-springboot-apps ${{ github.sha }}
 
