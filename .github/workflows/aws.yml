@@ -33,18 +33,23 @@ name: Deploy to Amazon ECS
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+      # JFrog platform url (for example: https://acme.jfrog.io)
+      JF_URL: ${{ secrets.JF_URL }}
+      # JFrog Platform access token
+      JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v1
       - run: |
           echo "artifactory_user=jimmyc" >> gradle.properties
           echo "artifactory_password=${{secrets.JF_PASSWORD}}" >> gradle.properties
-          cat gradle.properties
       - uses: actions/setup-java@v1
         with:
           java-version: '9.0.4' # The JDK version to make available on the path.
           java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
           architecture: x64 # (x64 or x86) - defaults to x64
+      - name: 'Setup JFrog'
+        uses: jfrog/setup-jfrog-cli@v3
       - run: |
           jf gradlec --use-wrapper=true --uses-plugin=true
           jf gradle build  artifactoryPublish -PbuildNum=${{ github.sha }} --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
