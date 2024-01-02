@@ -41,8 +41,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: |
-          echo "artifactory_user=jimmyc" >> gradle.properties
-          echo "artifactory_password=${{secrets.JF_PASSWORD}}" >> gradle.properties
+          # echo "artifactory_user=jimmyc" >> gradle.properties
+          # echo "artifactory_password=${{secrets.JF_PASSWORD}}" >> gradle.properties
       - uses: actions/setup-java@v1
         with:
           java-version: '9.0.4' # The JDK version to make available on the path.
