@@ -64,7 +64,7 @@ jobs:
     needs: build
     env:
       # JFrog platform url (for example: https://acme.jfrog.io)
-      JF_URL: ${{ vars.JF_URL }}
+      JF_URL: ${{ secrets.JF_URL }}
       # JFrog Platform access token
       JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
     steps:
@@ -84,8 +84,8 @@ jobs:
       run: |
         # Build a docker container and s
         # push it to Artifactory
-        # echo ${{ secrets.JF_PASSWORD }} | docker login ${{vars.JF_URL}} -u ${{ vars.JF_USERNAME }} --password-stdin
-        # export JFROG_CLI_LOG_LEVEL=DEBUG
+        echo ${{ secrets.JF_PASSWORD }} | docker login ${{vars.JF_URL}} -u ${{ vars.JF_USERNAME }} --password-stdin
+        export JFROG_CLI_LOG_LEVEL=DEBUG
         jf docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG .
         jf docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
         
