@@ -41,8 +41,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: |
-          # echo "artifactory_user=jimmyc" >> gradle.properties
-          # echo "artifactory_password=${{secrets.JF_PASSWORD}}" >> gradle.properties
+          echo "artifactory_user=jimmyc" >> gradle.properties
+          echo "artifactory_password=${{secrets.JF_PASSWORD}}" >> gradle.properties
       - uses: actions/setup-java@v1
         with:
           java-version: '9.0.4' # The JDK version to make available on the path.
@@ -86,6 +86,7 @@ jobs:
         # push it to Artifactory
         # echo ${{ secrets.JF_PASSWORD }} | docker login ${{vars.JF_URL}} -u ${{ vars.JF_USERNAME }} --password-stdin
         export JFROG_CLI_LOG_LEVEL=DEBUG
+        jf rt ping
         jf docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG .
         jf docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
         
