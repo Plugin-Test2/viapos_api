@@ -92,7 +92,7 @@ jobs:
         
         # sha=$(docker manifest inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.config.digest' | tr -d '"' )
         # repoDigest=$(docker inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.[0].RepoDigests[0]' | tr -d '"' | awk -F"@" '{ print $2}')
-        # echo "Sha is $repoDigest"
+        # echo "Sha is $repoDigest" s
         # jf rt bdc ${{vars.JF_DOCKER_REPO}} --image-file ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG"@$repoDigest" --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
         jf rt bp jimmmys-springboot-apps ${{ github.sha }}
 
