@@ -67,7 +67,7 @@ artifactory {
         }
     }
     clientConfig.setIncludeEnvVars(true)
-    clientConfig.info.setBuildName('jimmmys-springboot-apps')
+    // clientConfig.info.setBuildName('jimmmys-springboot-apps')
     // clientConfig.info.setBuildNumber(buildNum)
 }
 
