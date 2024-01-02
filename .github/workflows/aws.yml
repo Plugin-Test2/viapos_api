@@ -52,7 +52,7 @@ jobs:
         uses: jfrog/setup-jfrog-cli@v3
       - run: |
           jf gradlec --use-wrapper=true --uses-plugin=true
-          jf gradle build  artifactoryPublish -PbuildNum=${{ github.sha }} --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
+          jf gradle build  artifactoryPublish --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
       - uses: actions/upload-artifact@v2
         with:
           name: jarfiles
@@ -86,7 +86,6 @@ jobs:
         # push it to Artifactory
         # echo ${{ secrets.JF_PASSWORD }} | docker login ${{vars.JF_URL}} -u ${{ vars.JF_USERNAME }} --password-stdin
         export JFROG_CLI_LOG_LEVEL=DEBUG
-        jf rt ping
         jf docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG .
         jf docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
         
