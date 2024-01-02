@@ -75,6 +75,8 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: jarfiles
+    - name: 'Setup JFrog'
+      uses: jfrog/setup-jfrog-cli@v3
     - name: Build, tag, and push image to Artifactory
       id: build-image
       env:
