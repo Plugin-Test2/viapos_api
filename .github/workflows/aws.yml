@@ -51,6 +51,7 @@ jobs:
       - name: 'Setup JFrog'
         uses: jfrog/setup-jfrog-cli@v3
       - run: |
+          jf rt ping
           jf gradlec --use-wrapper=true --uses-plugin=true
           jf gradle build  artifactoryPublish --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
       - uses: actions/upload-artifact@v2
