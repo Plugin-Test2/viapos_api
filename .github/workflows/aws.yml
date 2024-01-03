@@ -53,7 +53,7 @@ jobs:
       - run: |
           jf rt ping
           jf gradlec --use-wrapper=true --uses-plugin=true
-          jf gradle build  artifactoryPublish --build-name=jimmmys-springboot-apps --build-number=1234
+          jf gradle build  artifactoryPublish --build-name=jimmmys-springboot-apps --build-number=1235
       - uses: actions/upload-artifact@v2
         with:
           name: jarfiles
@@ -88,11 +88,11 @@ jobs:
         # echo ${{ secrets.JF_PASSWORD }} | docker login ${{vars.JF_URL}} -u ${{ vars.JF_USERNAME }} --password-stdin
         export JFROG_CLI_LOG_LEVEL=DEBUG
         jf docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG .
-        jf docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG --build-name=jimmmys-springboot-apps --build-number=1234
+        jf docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG --build-name=jimmmys-springboot-apps --build-number=1235
         
         # sha=$(docker manifest inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.config.digest' | tr -d '"' )
         # repoDigest=$(docker inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.[0].RepoDigests[0]' | tr -d '"' | awk -F"@" '{ print $2}')
         # echo "Sha is $repoDigest" s
         # jf rt bdc ${{vars.JF_DOCKER_REPO}} --image-file ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG"@$repoDigest" --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
-        jf rt bp jimmmys-springboot-apps 1234
+        jf rt bp jimmmys-springboot-apps 1235
 
