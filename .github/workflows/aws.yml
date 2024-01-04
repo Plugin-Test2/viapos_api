@@ -58,40 +58,30 @@ jobs:
           name: jarfiles
           path: build/libs
 
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    needs: build
-    env:
-      # JFrog platform url (for example: https://acme.jfrog.io)
-      JF_URL: ${{ secrets.JF_URL }}
-      # JFrog Platform access token
-      JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Download jar for job 2
-      uses: actions/download-artifact@v1
-      with:
-        name: jarfiles
-    - name: 'Setup JFrog'
-      uses: jfrog/setup-jfrog-cli@v3
-    - name: Build, tag, and push image to Artifactory
-      id: build-image
-      env:
-        IMAGE_TAG: ${{ github.sha }}
-      run: |
-        # Build a docker container and s
-        # push it to Artifactory
-        # echo ${{ secrets.JF_PASSWORD }} | docker login ${{vars.JF_URL}} -u ${{ vars.JF_USERNAME }} --password-stdin
-        export JFROG_CLI_LOG_LEVEL=DEBUG
-        jf docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG .
-        jf docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG --build-name=jimmmys-springboot-apps --build-number=1235
-        
-        # sha=$(docker manifest inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.config.digest' | tr -d '"' )
-        # repoDigest=$(docker inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.[0].RepoDigests[0]' | tr -d '"' | awk -F"@" '{ print $2}')
-        # echo "Sha is $repoDigest" s
-        # jf rt bdc ${{vars.JF_DOCKER_REPO}} --image-file ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG"@$repoDigest" --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
-        jf rt bp jimmmys-springboot-apps 1235
-
+      - name: Download jar for job 2
+        uses: actions/download-artifact@v1
+        with:
+          name: jarfiles
+      - name: 'Setup JFrog'
+        uses: jfrog/setup-jfrog-cli@v3
+      - name: Build, tag, and push image to Artifactory
+        id: build-image
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          # Build a docker container and s
+          # push it to Artifactory
+          # echo ${{ secrets.JF_PASSWORD }} | docker login ${{vars.JF_URL}} -u ${{ vars.JF_USERNAME }} --password-stdin
+          export JFROG_CLI_LOG_LEVEL=DEBUG
+          jf docker build --build-arg JAR_FILE=jarfiles/*.jar -t ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG .
+          jf docker push ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG --build-name=jimmmys-springboot-apps --build-number=1235
+          
+          # sha=$(docker manifest inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.config.digest' | tr -d '"' )
+          # repoDigest=$(docker inspect ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG | jq '.[0].RepoDigests[0]' | tr -d '"' | awk -F"@" '{ print $2}')
+          # echo "Sha is $repoDigest" s
+          # jf rt bdc ${{vars.JF_DOCKER_REPO}} --image-file ${{vars.JF_URL}}/${{vars.JF_DOCKER_REPO}}/viapos_api:$IMAGE_TAG"@$repoDigest" --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
+          jf rt bp jimmmys-springboot-apps 1235
+  
