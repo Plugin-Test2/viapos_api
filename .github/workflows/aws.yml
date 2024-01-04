@@ -35,9 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # JFrog platform url (for example: https://acme.jfrog.io)
-      JF_URL: ${{ secrets.JF_URL }}
-      # JFrog Platform access token
-      JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+      JF_ENV_1: ${{ secrets.JF_SECRET_ENV_1 }}
     steps:
       - uses: actions/checkout@v1
       - run: |
