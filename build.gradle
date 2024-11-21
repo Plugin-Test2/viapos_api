@@ -19,6 +19,7 @@ apply plugin: "com.jfrog.artifactory"
 apply plugin: 'maven-publish'
 
 dependencies {
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.threeten:threetenbp:1.4.0'
     implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.10.1'
