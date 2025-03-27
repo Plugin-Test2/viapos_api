@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="">
+    <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="fixing github aciton">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viapos/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viapos/configuration/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/api/EmployeesApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/api/EmployeesApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/dao/ShiftDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/dao/ShiftDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/DistributionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/DistributionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/EmployeeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RoutePlanService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RoutePlanService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RouteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RouteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/SectionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/SectionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/ShiftService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/ShiftService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +51,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -38,21 +74,88 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jlcaldwell123&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Plugin-Test2/viapos_api.git&quot;,
+    &quot;accountId&quot;: &quot;092b4bbe-39af-4111-b93b-94fa533023d2&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="1a8RszExzJM4ud6joIv9Mc3ygxo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.viapos_api [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;buildsPattern&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="viapos_api [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.viapos_api [dependencies]" />
+      </list>
+    </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -63,6 +166,44 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586115444971</updated>
+      <workItem from="1701202297309" duration="163000" />
+      <workItem from="1701202462235" duration="10056000" />
+      <workItem from="1701983215419" duration="630000" />
+      <workItem from="1702388725361" duration="4155000" />
+      <workItem from="1702586723536" duration="655000" />
+      <workItem from="1702913189063" duration="428000" />
+      <workItem from="1702913621443" duration="73000" />
+      <workItem from="1702913697203" duration="199000" />
+      <workItem from="1702913899825" duration="37000" />
+      <workItem from="1702913940562" duration="280000" />
+      <workItem from="1702914223655" duration="219000" />
+      <workItem from="1702914446229" duration="25000" />
+      <workItem from="1702914473925" duration="20000" />
+      <workItem from="1702914497483" duration="62000" />
+      <workItem from="1702914564305" duration="78000" />
+      <workItem from="1702914651579" duration="1248000" />
+      <workItem from="1702921603343" duration="21176000" />
+      <workItem from="1703092869039" duration="1899000" />
+      <workItem from="1703094919843" duration="3567000" />
+      <workItem from="1703857938459" duration="7257000" />
+      <workItem from="1704210204334" duration="2598000" />
+      <workItem from="1704214130613" duration="2568000" />
+      <workItem from="1704296011040" duration="1344000" />
+      <workItem from="1704298986656" duration="13793000" />
+      <workItem from="1706191047340" duration="1924000" />
+      <workItem from="1712237678604" duration="6974000" />
+      <workItem from="1712582532339" duration="592000" />
+      <workItem from="1712935866522" duration="1713000" />
+      <workItem from="1715016555711" duration="1207000" />
+      <workItem from="1717418375873" duration="634000" />
+      <workItem from="1719859864565" duration="83000" />
+      <workItem from="1727874118791" duration="2791000" />
+      <workItem from="1728398060392" duration="1616000" />
+      <workItem from="1733242374649" duration="866000" />
+      <workItem from="1733415064874" duration="90000" />
+      <workItem from="1741033535074" duration="22000" />
+      <workItem from="1741033569754" duration="13000" />
+      <workItem from="1743102252243" duration="731000" />
     </task>
     <task id="LOCAL-00041" summary="fixing build">
       <created>1598301578247</created>
@@ -407,18 +548,13 @@
       <option name="project" value="LOCAL" />
       <updated>1600792472070</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updating task definition" />
-    <MESSAGE value="adding location UUID generation" />
-    <MESSAGE value="fixing build" />
-    <MESSAGE value="fixing all services to generate UUID" />
-    <MESSAGE value="fixing Section object" />
-    <MESSAGE value="adding to Section object" />
-    <MESSAGE value="adding delete distribution by ID" />
-    <MESSAGE value="fixing update sections" />
     <MESSAGE value="fixing event start" />
     <MESSAGE value="updating list" />
     <MESSAGE value="adding min employe nbr to event" />
@@ -436,68 +572,14 @@
     <MESSAGE value="adding Event CRUD functionality" />
     <MESSAGE value="setting up new cluster" />
     <MESSAGE value="setting up healthcheck" />
-    <option name="LAST_COMMIT_MESSAGE" value="setting up healthcheck" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="2132" y="350" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597499253474">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2132" y="350" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597499253474" />
-    <state x="2213" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1600538034685">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2213" y="231" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600538034685" />
-    <state x="2238" y="257" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1597500197953">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2238" y="257" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500197953" />
-    <state x="2188" y="432" width="423" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1600529044283">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2188" y="432" width="423" height="225" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600529044283" />
-    <state x="1875" y="90" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597499582211">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="1875" y="90" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597499582211" />
-    <state x="2138" y="312" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1597500079393">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2138" y="312" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597500079393" />
-    <state x="2045" y="142" key="CommitChangelistDialog2" timestamp="1600792471670">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2045" y="142" key="CommitChangelistDialog2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600792471670" />
-    <state x="454" y="105" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1600566546576" />
-    <state x="2045" y="142" key="CommitChangelistDialog2/0.23.1440.877/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600625738471" />
-    <state x="1888" y="121" key="SettingsEditor" timestamp="1598293147878">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="1888" y="121" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598293147878" />
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2" timestamp="1600792473533">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600792473533" />
-    <state x="420" y="233" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1600566550383" />
-    <state x="2000" y="280" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600625740423" />
-    <state x="2183" y="325" key="chooseDestDirectoryDialog" timestamp="1597521651917">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2183" y="325" key="chooseDestDirectoryDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597521651917" />
-    <state x="1968" y="320" key="com.intellij.ide.util.TipDialog" timestamp="1600636151914">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="396" y="267" key="com.intellij.ide.util.TipDialog/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1598912899562" />
-    <state x="1968" y="320" key="com.intellij.ide.util.TipDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1600636151914" />
-    <state x="396" y="267" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1597961410040" />
-    <state x="396" y="268" key="com.intellij.ide.util.TipDialog/0.23.1440.827/1440.23.1920.1057@0.23.1440.827" timestamp="1598294704480" />
-    <state x="1968" y="336" key="com.intellij.ide.util.TipDialog/0.23.1440.827/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599916570847" />
-    <state x="2205" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598125441106">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2205" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1598125441106" />
-    <state x="1829" y="162" key="new project wizard" timestamp="1597869659634">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="1829" y="162" key="new project wizard/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1597869659634" />
+    <MESSAGE value="fixing artifactory" />
+    <MESSAGE value="adding so it can upload to docker" />
+    <MESSAGE value="triggering a build" />
+    <MESSAGE value="adding artifact upload and using github sha as build num" />
+    <MESSAGE value="attaching build info to docker image" />
+    <MESSAGE value="adding jf env" />
+    <MESSAGE value="updating gitignore" />
+    <MESSAGE value="fixing github aciton" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing github aciton" />
   </component>
 </project>

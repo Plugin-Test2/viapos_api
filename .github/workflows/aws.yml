@@ -45,7 +45,7 @@ jobs:
         with:
           java-version: '9.0.4' # The JDK version to make available on the path.
           java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
-          architecture: x64 # (x64 or x86) - defaults to x64
+          architecture: x64 # (x64 or x86) - defaults to x64 ss
       - name: 'Setup JFrog'
         uses: jfrog/setup-jfrog-cli@v3
       - run: |
