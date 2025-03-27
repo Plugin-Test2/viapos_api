@@ -1,6 +1,5 @@
 FROM openjdk:8-jdk-alpine
-WORKDIR /app
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=build/libs/*.jar
 RUN ls -l
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
