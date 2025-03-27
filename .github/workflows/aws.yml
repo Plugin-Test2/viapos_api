@@ -53,7 +53,7 @@ jobs:
           jf rt ping
           jf gradlec --use-wrapper=true --uses-plugin=true
           jf gradle build  artifactoryPublish --build-name=jimmmys-springboot-apps --build-number=${{ github.sha }}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: jarfiles
           path: build/libs

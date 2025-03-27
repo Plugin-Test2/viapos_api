@@ -5,38 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="fixing github aciton">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/aws.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/aws.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/api/EmployeesApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/api/EmployeesApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/dao/ShiftDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/dao/ShiftDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/DistributionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/DistributionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/EmployeeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RoutePlanService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RoutePlanService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RouteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/RouteService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/SectionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/SectionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/viapos/service/ShiftService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/viapos/service/ShiftService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +173,7 @@
       <workItem from="1733415064874" duration="90000" />
       <workItem from="1741033535074" duration="22000" />
       <workItem from="1741033569754" duration="13000" />
-      <workItem from="1743102252243" duration="731000" />
+      <workItem from="1743102252243" duration="1057000" />
     </task>
     <task id="LOCAL-00041" summary="fixing build">
       <created>1598301578247</created>
@@ -548,7 +518,7 @@
       <option name="project" value="LOCAL" />
       <updated>1600792472070</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
