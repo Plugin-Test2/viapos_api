@@ -47,7 +47,9 @@ jobs:
           java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
           architecture: x64 # (x64 or x86) - defaults to x64 ss
       - name: 'Setup JFrog'
-        uses: jfrog/setup-jfrog-cli@v3
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
       - run: |
           export JFROG_CLI_LOG_LEVEL=DEBUG
           jf rt ping

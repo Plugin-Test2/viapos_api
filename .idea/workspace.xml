@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="761f467e-58ab-46b7-8ec5-513c62854bd8" name="Default Changelist" comment="fixing github aciton">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/aws.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/aws.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +172,7 @@
       <workItem from="1733415064874" duration="90000" />
       <workItem from="1741033535074" duration="22000" />
       <workItem from="1741033569754" duration="13000" />
-      <workItem from="1743102252243" duration="1967000" />
+      <workItem from="1743102252243" duration="2278000" />
     </task>
     <task id="LOCAL-00041" summary="fixing build">
       <created>1598301578247</created>
@@ -517,7 +517,7 @@
       <option name="project" value="LOCAL" />
       <updated>1600792472070</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
